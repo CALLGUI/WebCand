@@ -63,17 +63,6 @@ public class CandidatController {
     @Operation(summary = "Méthode permettant de mettre à jour un candidat.")
     public ResponseEntity<CandidatDto> updateCandidat(@RequestBody final CandidatDto candidatDto) {
 
-        /**.orElseThrow(() -> new RessourceNotFoundException("candidatEntity", "id",candidatId));
-        candidatEntity.setNomCandidat(candidatEntityInfo.getNomCandidat());
-        candidatEntity.setPrenomCandidat(candidatEntityInfo.getPrenomCandidat());
-        candidatEntity.setDateNaissanceCandidat(candidatEntityInfo.getDateNaissanceCandidat());
-        candidatEntity.setAdresseCandidat(candidatEntityInfo.getAdresseCandidat());
-        candidatEntity.setCodePostalCandidat(candidatEntityInfo.getCodePostalCandidat());
-        candidatEntity.setVilleCandidat(candidatEntityInfo.getVilleCandidat());
-        candidatEntity.setPaysCandidat(candidatEntityInfo.getPaysCandidat());
-        candidatEntity.setTelephoneCandidat(candidatEntityInfo.getTelephoneCandidat());
-        CandidatEntity majEdCandidat = cr.save(candidatEntity);**/
-
         final CandidatEntity saved = this.cservice.update(cmapper.dtoVersEntite(candidatDto));
 
         return new ResponseEntity<>(cmapper.entiteVersDto(saved), HttpStatus.OK);

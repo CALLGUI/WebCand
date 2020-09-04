@@ -10,9 +10,9 @@ import java.util.List;
 @Service
 public interface ICandidatService {
     List<CandidatEntity> getAll();
-    //DataTablesOutput<CandidatEntity> findAll(DataTablesInput input);
     CandidatEntity findById(Long id);
     CandidatEntity save(CandidatEntity CandidatEntity);
     CandidatEntity update(CandidatEntity CandidatEntity);
     void deleteById(Long id);
+    //DataTablesOutput<CandidatEntity> findAll(DataTablesInput input);
 }
