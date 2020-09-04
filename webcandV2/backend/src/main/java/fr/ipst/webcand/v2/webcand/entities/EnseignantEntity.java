@@ -5,6 +5,8 @@ import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "enseignants")
@@ -35,5 +37,24 @@ public class EnseignantEntity {
     @NotNull
     private EnseignantEntity.Statut statut;
 
+    //table d'association sans attribut autres que les FK : Enseignant <> Formation
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "jury",
+            joinColumns = @JoinColumn(name = "id_Enseignant"),
+            inverseJoinColumns = @JoinColumn(name = "id_Formation")
+    )
+    private Set<FormationEntity> formations = new HashSet<>();
 
+    public void addFormation(FormationEntity formation) {
+        formations.add(formation);
+        formation.getEnseignants().add(this);
+    }
+
+    public void removeFormation(FormationEntity formation) {
+        formations.remove(formation);
+        formation.getEnseignants().remove(this);
+    }
 }

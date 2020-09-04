@@ -1,7 +1,10 @@
 package fr.ipst.webcand.v2.webcand.dto;
 
 import fr.ipst.webcand.v2.webcand.entities.EnseignantEntity;
+import fr.ipst.webcand.v2.webcand.entities.FormationEntity;
 import lombok.Data;
+
+import java.util.Set;
 
 @Data
 public class EnseignantDto {
@@ -19,4 +22,6 @@ public class EnseignantDto {
     private String titre_Enseignant;
 
     private EnseignantEntity.Statut statut;
+
+    private Set<FormationEntity> formations;
 }

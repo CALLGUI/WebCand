@@ -4,6 +4,8 @@ import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name ="formations")
@@ -21,4 +23,15 @@ public class FormationEntity {
 
     @Column(name="description_Formation")
     private String description_Formation;
+
+    @ManyToMany(mappedBy = "formations")
+    private Set<EnseignantEntity> enseignants = new HashSet<>();
+
+    public Set<EnseignantEntity> getEnseignants() {
+        return enseignants;
+    }
+
+    public void setEnseignants(Set<EnseignantEntity> enseignants) {
+        this.enseignants = enseignants;
+    }
 }
