@@ -13,9 +13,9 @@ public class SessionFormationDto {
 
     private String nomSession;
 
-    private Date dateDebutSession;
+    private String dateDebutSession;
 
-    private Date dateFinSession;
+    private String dateFinSession;
 
     //private FormationEntity formationEntity;
 

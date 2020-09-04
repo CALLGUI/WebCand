@@ -21,10 +21,10 @@ public class SessionFormationEntity {
     private String nomSession;
 
     @Column(name = "dateDebutSession")
-    private Date dateDebutSession;
+    private String dateDebutSession;
 
     @Column(name = "dateFinSession")
-    private Date dateFinSession;
+    private String dateFinSession;
 
    /* @ManyToOne
     @JoinColumn(name = "id_Formation")
