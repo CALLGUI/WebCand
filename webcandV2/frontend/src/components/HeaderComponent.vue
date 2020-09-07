@@ -2,7 +2,7 @@
 
   <!--  Header 1-->
   <div class="container">
-    <nav class="col-12 navbar navcolor bg-light border">
+    <nav class="col-12 navbar navcolor bg-light border img-responsive">
       <img src="../assets/1280px-CNAM_Logo.svg.png" style=" width: 324px; height: 68px;" class="navbar-brand" href="/">
       <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
@@ -31,7 +31,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Formations</a>

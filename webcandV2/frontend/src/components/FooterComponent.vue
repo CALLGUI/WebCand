@@ -1,9 +1,10 @@
 <template>
+  <div class="container">
   <footer class="page-footer font-small unique-color-dark pt-4 bg-light border">
     <div class="container">
       <ul class="list-unstyled list-inline text-center py-2">
         <li class="list-inline-item">
-          <h5 class="mb-1">Inscriver-vous gratuitement !</h5>
+          <h5 class="mb-1">Inscrivez-vous gratuitement !</h5>
           <br>
         </li>
         <li class="list-inline-item col-12">
@@ -16,12 +17,15 @@
       <a href="https://lecnam.net/" target="_blank">lecnam.net</a>
     </div>
   </footer>
+  </div>
 </template>
 
 <script>
+
 export default {
   name: "FooterComponent"
 }
+
 </script>
 
 <style scoped>
