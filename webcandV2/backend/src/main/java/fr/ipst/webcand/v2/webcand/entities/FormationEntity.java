@@ -14,14 +14,14 @@ import java.util.Set;
 public class FormationEntity {
 
     @Id
-    @Column(name = "id_Formation")
+    @Column(name = "id_formation")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_Formation;
 
-    @Column(name="intitule_Formation")
+    @Column(name="intitule_formation")
     private String intitule_Formation;
 
-    @Column(name="description_Formation")
+    @Column(name="description_formation")
     private String description_Formation;
 
     @ManyToMany(mappedBy = "formations")

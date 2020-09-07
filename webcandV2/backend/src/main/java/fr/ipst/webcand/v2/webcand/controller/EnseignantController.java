@@ -35,7 +35,7 @@ public class EnseignantController {
 
     @PostMapping
     @Operation(summary = "Méthode permettant d'enregistrer un enseignant.")
-    public ResponseEntity<EnseignantDto> createCandidat(@RequestBody final EnseignantDto enseignantDto) {
+    public ResponseEntity<EnseignantDto> createEnseignant(@RequestBody final EnseignantDto enseignantDto) {
 
         final EnseignantEntity saved = cservice.save(cmapper.dtoVersEntite(enseignantDto));
 
@@ -45,7 +45,7 @@ public class EnseignantController {
 
     @GetMapping("/{id}")
     @Operation(summary = "Méthode permettant de récupérer un enseignant.")
-    public ResponseEntity<EnseignantDto> getCandidatById(@PathVariable("id") final Long formationId) {
+    public ResponseEntity<EnseignantDto> getEnseignantById(@PathVariable("id") final Long formationId) {
 
         final EnseignantEntity cEntity = this.cservice.findById(formationId);
         //.orElseThrow(() -> new RessourceNotFoundException("candidat", "id", formationId));
@@ -54,7 +54,7 @@ public class EnseignantController {
 
     @PutMapping("/{id}")
     @Operation(summary = "Méthode permettant de mettre à jour un enseignant.")
-    public ResponseEntity<EnseignantDto> updateCandidat(@RequestBody final EnseignantDto enseignantDto) {
+    public ResponseEntity<EnseignantDto> updateEnseignant(@RequestBody final EnseignantDto enseignantDto) {
 
         final EnseignantEntity saved = this.cservice.update(cmapper.dtoVersEntite(enseignantDto));
 
@@ -63,7 +63,7 @@ public class EnseignantController {
 
     @DeleteMapping("/{id]")
     @Operation(summary = "Méthode permettant de supprimer un enseignant.")
-    public void deleteCandidat(@PathVariable("id") final Long enseignantID) {
+    public void deleteEnseignant(@PathVariable("id") final Long enseignantID) {
         //public ResponseEntity<?> deleteCandidat(@PathVariable("id") final Long formationId) {
         this.cservice.deleteById(enseignantID);
         //return ResponseEntity.ok().build();
