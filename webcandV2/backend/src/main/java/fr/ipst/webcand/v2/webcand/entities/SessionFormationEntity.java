@@ -4,7 +4,6 @@ import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "session_formation")
