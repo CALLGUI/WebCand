@@ -15,7 +15,7 @@ import java.util.Set;
 public class EnseignantEntity {
 
     public enum Statut {
-        Enseignant, ResponsableDeFormation, ResponsableEtEnseignant
+        Enseignant, Responsable_De_Formation, Responsable_Et_Enseignant
     }
 
     @Id
@@ -23,16 +23,16 @@ public class EnseignantEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_Enseignant;
 
-    @Column(name = "nom_Enseignant")
+    @Column(name = "nom_enseignant")
     private String nom_Enseignant;
 
     @Column(name = "prenom_Enseignant")
     private String prenom_Enseignant;
 
-    @Column(name = "titre_Enseignant")
+    @Column(name = "titre_enseignant")
     private String titre_Enseignant;
 
-    @Column(name = "statut_Enseignant")
+    @Column(name = "statut_enseignant")
     @Enumerated(EnumType.STRING)
     @NotNull
     private EnseignantEntity.Statut statut;

@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "sessionFormation")
+@Table(name = "session_formation")
 @Data
 @SQLDelete(sql = "DELETE FROM sessionFormation WHERE id_session_formation = ?")
 public class SessionFormationEntity {
@@ -17,13 +17,13 @@ public class SessionFormationEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_Session_Formation;
 
-    @Column(name = "nomSession")
+    @Column(name = "nom_session")
     private String nomSession;
 
-    @Column(name = "dateDebutSession")
+    @Column(name = "date_debut_Session")
     private String dateDebutSession;
 
-    @Column(name = "dateFinSession")
+    @Column(name = "date_fin_session")
     private String dateFinSession;
 
    /* @ManyToOne
