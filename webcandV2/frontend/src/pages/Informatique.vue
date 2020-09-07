@@ -50,7 +50,8 @@
 
 export default {
   name: "Informatique",
-  components: {},
+  components: {
+  },
 };
 
 </script>
