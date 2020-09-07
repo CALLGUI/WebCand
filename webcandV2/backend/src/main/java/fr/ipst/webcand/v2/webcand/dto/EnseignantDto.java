@@ -10,7 +10,7 @@ import java.util.Set;
 public class EnseignantDto {
 
     public enum Statut {
-        Enseignant, ResponsableDeFormation, ResponsableEtEnseignant
+        Enseignant, Responsable_De_Formation, Responsable_Et_Enseignant
     }
 
     private Long id_Enseignant;
