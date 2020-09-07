@@ -1,7 +1,6 @@
 package fr.ipst.webcand.v2.webcand.services;
 
 import fr.ipst.webcand.v2.webcand.entities.FormationEntity;
-import fr.ipst.webcand.v2.webcand.repository.CandidatRepo;
 import fr.ipst.webcand.v2.webcand.repository.FormationRepo;
 import fr.ipst.webcand.v2.webcand.services.interfaces.IFormationService;
 import org.springframework.beans.factory.annotation.Autowired;

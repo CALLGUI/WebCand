@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/formations")
+@RequestMapping("/api/formations")
 @Tag(name = "Gestion des formations")
 public class FormationController {
 

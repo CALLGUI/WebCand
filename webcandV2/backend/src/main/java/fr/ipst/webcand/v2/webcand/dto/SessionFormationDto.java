@@ -3,8 +3,6 @@ package fr.ipst.webcand.v2.webcand.dto;
 import fr.ipst.webcand.v2.webcand.entities.FormationEntity;
 import lombok.Data;
 
-import java.util.Date;
-
 @Data
 public class SessionFormationDto {
 
