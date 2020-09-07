@@ -8,9 +8,7 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface ISessionFormatinMapper {
-
     SessionFormationDto entiteVersDto(SessionFormationEntity sessionFormationEntity);
     SessionFormationEntity dtoVersEntite(SessionFormationDto sessionFormationDto);
     List<SessionFormationDto> listeEntiteVersListeDto(List<SessionFormationEntity> sessionFormationEntities);
-
 }
