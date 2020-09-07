@@ -1,5 +1,5 @@
 <template>
-  <div class="container d-flex h-100" id="imghome">
+  <div class="d-flex h-100" id="imghome">
     <b-card-group deck>
       <b-card
           title="TITRE DU MOMENT"
@@ -44,7 +44,7 @@
 
 <script>
 export default {
-name: "CardComponent"
+  name: "CardComponent"
 }
 </script>
 

@@ -11,7 +11,7 @@ export default {
   name: "MentionLegales"
 }
 </script>
-u
+
 <style scoped>
 
 </style>

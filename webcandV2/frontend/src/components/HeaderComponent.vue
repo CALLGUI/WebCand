@@ -1,17 +1,19 @@
 <template>
 
-  <!--  Header 1-->
-  <div class="container">
-    <nav class="col-12 navbar navcolor bg-light border img-responsive">
-      <img src="../assets/1280px-CNAM_Logo.svg.png" style=" width: 324px; height: 68px;" class="navbar-brand" href="/">
+  <div>
+
+    <!--  Header partie 1-->
+    <nav class="navbar navcolor bg-light border">
+      <div class="col-4">
+      <img src="../assets/1280px-CNAM_Logo.svg.png" class="navbar-brand img-fluid" href="/">
+      </div>
       <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
         <button class="btn btn-primary my-2 my-sm-0" type="submit">Chercher</button>
       </form>
     </nav>
 
-
-    <!--Header 2-->
+    <!--Header partie  2-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -34,7 +36,7 @@
             <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Formations</a>
+            <ListeFormations/>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">amodifier</a>
@@ -46,14 +48,16 @@
       </div>
     </nav>
   </div>
-
 </template>
 
 <script>
 
 
+import ListeFormations from "@/components/ListeFormations";
+
 export default {
-  name: "HeaderComponent"
+  name: "HeaderComponent",
+  components: {ListeFormations}
 }
 
 

@@ -1,10 +1,10 @@
 <template>
-
-  <div id="app">
-
-    <div class="contenu container">
+  <div class="container">
+    <div class="row">
+      <div class="col-12" id="app">
+       <router-view></router-view>
+      </div>
     </div>
-    <router-view></router-view>
   </div>
 </template>
 
@@ -13,8 +13,6 @@
 
 export default {
   name: "App",
-  components: {
-  },
 };
 
 </script>
