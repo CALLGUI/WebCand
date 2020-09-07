@@ -9,6 +9,7 @@
       <HeaderComponent/>
       <ListeFormations/>
       <CardComponent/>
+      <br/>
       <FooterComponent/>
 
     </div>
@@ -31,8 +32,10 @@ export default {
     FooterComponent,
     CardComponent
 
+
   },
 };
+
 </script>
 
 <style></style>

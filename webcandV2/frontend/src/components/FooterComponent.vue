@@ -1,45 +1,19 @@
 <template>
-  <footer id="fh5co-footer" class="fh5co-bg" role="contentinfo">
-    <div class="overlay"></div>
+  <footer class="page-footer font-small unique-color-dark pt-4 bg-light border">
     <div class="container">
-      <div class="row row-pb-md">
-        <div class="col-md-4 fh5co-widget">
-
-          <p><a class="btn btn-primary" href="#">Inscrivez vous</a></p>
-        </div>
-        <div class="row align-items-center">
-          <div class="col-md-4 col-sm-4 col-xs-6">
-            <ul class="fh5co-footer-links">
-              <li><a href="#">Mentions légales</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
-
-          <div class="col-md-4 col-sm-4 col-xs-6">
-            <ul class="fh5co-footer-links">
-              <li><a href="#">Equipe pédagogique</a></li>
-              <li><a href="#">Adresse de l'école</a></li>
-            </ul>
-          </div>
-
-          <div class="col-md-4 col-sm-4 col-xs-6">
-            <ul class="fh5co-footer-links">
-              <li><a href="#">Programme</a></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Assistance</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="row copyright">
-        <div class="col-md-12 text-center">
-          <p>
-            <small class="block">&copy; 2020 </small>
-            <small class="block">Bienvenue sur le site du cnam !</small>
-          </p>
-        </div>
-      </div>
+      <ul class="list-unstyled list-inline text-center py-2">
+        <li class="list-inline-item">
+          <h5 class="mb-1">Inscriver-vous gratuitement !</h5>
+          <br>
+        </li>
+        <li class="list-inline-item col-12">
+          <a href="#!" class="btn btn-dark btn-rounded">Inscription</a>
+          <a href="#!">Qui sommes-nous ?</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://lecnam.net/" target="_blank">lecnam.net</a>
     </div>
   </footer>
 </template>
