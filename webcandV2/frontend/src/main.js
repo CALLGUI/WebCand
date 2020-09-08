@@ -19,6 +19,7 @@ import Home from "@/pages/Home";
 import Informatique from "@/pages/Informatique";
 import NotFound from "@/pages/NotFound";
 import DemarcheCandidat from "@/pages/DemarcheCandidat";
+import Inscription from "@/pages/Inscription";
 
 
 Vue.use(BootstrapVue);
@@ -38,6 +39,7 @@ const routes = [
             {path: "DemarcheCandidat", component: DemarcheCandidat},
             {path: "*", name: 'NotFound', component: NotFound},
             
+            {path: "Inscription", component: Inscription},
         ],
     },
     //Page erreur 404

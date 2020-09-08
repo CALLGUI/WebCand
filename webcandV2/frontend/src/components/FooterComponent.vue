@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div class="mt-5">
     <footer class="page-footer font-small unique-color-dark pt-4 bg-light border">
       <ul class="list-unstyled list-inline text-center py-2">
         <li class="list-inline-item">
           <h5 class="mb-1">Inscrivez-vous gratuitement !</h5>
           <br>
         </li>
-        <li class="list-inline-item col-12">
-          <a href="#!" class="btn btn-dark btn-rounded">Inscription</a>
+        <li>
+          <a href="Inscription" class="btn btn-dark btn-rounded mr-4">Inscription</a>
           <a href="mentionleg">Qui sommes-nous ?</a>
         </li>
       </ul>
