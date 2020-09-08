@@ -7,7 +7,7 @@
           <br>
         </li>
         <li>
-          <a href="#!" class="btn btn-dark btn-rounded mr-4">Inscription</a>
+          <a href="Inscription" class="btn btn-dark btn-rounded mr-4">Inscription</a>
           <a href="mentionleg">Qui sommes-nous ?</a>
         </li>
       </ul>
