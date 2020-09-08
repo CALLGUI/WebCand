@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <div class="mb-5">
 
     <!--  Header partie 1-->
     <nav class="navbar navcolor bg-light border">
@@ -15,7 +15,7 @@
 
     <!--Header partie  2-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="dropdown">
+      <!--<div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
           Menu
@@ -25,7 +25,7 @@
           <a class="dropdown-item" href="#">Action 2</a>
           <a class="dropdown-item" href="#">Action 3</a>
         </div>
-      </div>
+      </div>-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
