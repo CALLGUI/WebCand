@@ -18,6 +18,7 @@ import ListeFormations from "@/components/ListeFormations";
 import Home from "@/pages/Home";
 import Informatique from "@/pages/Informatique";
 import NotFound from "@/pages/NotFound";
+import DemarcheCandidat from "@/pages/DemarcheCandidat";
 
 
 Vue.use(BootstrapVue);
@@ -34,7 +35,9 @@ const routes = [
             {path: "mentionleg", component: MentionLegales},
             {path: "listeformations", component: ListeFormations},
             {path: "Informatique", component: Informatique},
+            {path: "DemarcheCandidat", component: DemarcheCandidat},
             {path: "*", name: 'NotFound', component: NotFound},
+            
         ],
     },
     //Page erreur 404
