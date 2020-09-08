@@ -19,13 +19,13 @@ public class CandidatureEntity {
     @Id
     @Column(name = "id_candidature")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_Candidature;
+    private Long idCandidature;
 
     @Column(name = "date_candidature")
-    private String date_Candidature;
+    private String dateCandidature;
 
     @Column(name = "lien_entretien")
-    private String lien_Entretien;
+    private String lienEntretien;
 
     @Column(name = "etat_candidature")
     @Enumerated(EnumType.STRING)

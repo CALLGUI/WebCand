@@ -13,13 +13,13 @@ public class EnseignantDto {
         Enseignant, Responsable_De_Formation, Responsable_Et_Enseignant
     }
 
-    private Long id_Enseignant;
+    private Long idEnseignant;
 
-    private String nom_Enseignant;
+    private String nomEnseignant;
 
-    private String prenom_Enseignant;
+    private String prenomEnseignant;
 
-    private String titre_Enseignant;
+    private String titreEnseignant;
 
     private EnseignantEntity.Statut statut;
 

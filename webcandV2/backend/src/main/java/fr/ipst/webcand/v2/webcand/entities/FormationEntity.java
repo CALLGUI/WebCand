@@ -16,13 +16,13 @@ public class FormationEntity {
     @Id
     @Column(name = "id_formation")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_Formation;
+    private long idFormation;
 
-    @Column(name="intitule_formation")
-    private String intitule_Formation;
+    @Column(name="nom_formation")
+    private String nomFormation;
 
     @Column(name="description_formation")
-    private String description_Formation;
+    private String descriptionFormation;
 
     @ManyToMany(mappedBy = "formations")
     private Set<EnseignantEntity> enseignants = new HashSet<>();

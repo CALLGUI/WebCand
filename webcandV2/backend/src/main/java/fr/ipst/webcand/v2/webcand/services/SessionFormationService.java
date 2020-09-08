@@ -1,7 +1,7 @@
 package fr.ipst.webcand.v2.webcand.services;
 
 import fr.ipst.webcand.v2.webcand.entities.SessionFormationEntity;
-import fr.ipst.webcand.v2.webcand.repository.SessionFormationRepo;
+import fr.ipst.webcand.v2.webcand.repository.ISessionFormationRepository;
 import fr.ipst.webcand.v2.webcand.services.interfaces.ISessionFormationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.List;
 public class SessionFormationService implements ISessionFormationService {
 
     @Autowired
-    private SessionFormationRepo sessionFormationRepository;
+    private ISessionFormationRepository sessionFormationRepository;
 
     @Override
     public List<SessionFormationEntity> getAll() {

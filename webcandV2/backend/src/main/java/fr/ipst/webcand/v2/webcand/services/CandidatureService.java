@@ -1,7 +1,7 @@
 package fr.ipst.webcand.v2.webcand.services;
 
 import fr.ipst.webcand.v2.webcand.entities.CandidatureEntity;
-import fr.ipst.webcand.v2.webcand.repository.CandidatureRepo;
+import fr.ipst.webcand.v2.webcand.repository.ICandidatureRepository;
 import fr.ipst.webcand.v2.webcand.services.interfaces.ICandidatureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.List;
 public class CandidatureService implements ICandidatureService {
 
     @Autowired
-    private CandidatureRepo candidatureRepository;
+    private ICandidatureRepository candidatureRepository;
 
     @Override
     public List<CandidatureEntity> getAll() {

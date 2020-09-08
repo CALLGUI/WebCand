@@ -5,21 +5,21 @@ import lombok.Data;
 @Data
 public class CandidatDto {
 
-    private Long id_Candidat;
+    private Long idCandidat;
     
-    private String nom_Candidat;
+    private String nomCandidat;
 
-    private String prenom_Candidat;
+    private String prenomCandidat;
 
-    private String date_Naissance_Candidat;
+    private String dateNaissanceCandidat;
 
-    private String adresse_Candidat;
+    private String adresseCandidat;
 
-    private String code_Postal_Candidat;
+    private String codePostalCandidat;
 
-    private String ville_Candidat;
+    private String villeCandidat;
 
-    private String pays_Candidat;
+    private String paysCandidat;
 
-    private String telephone_Candidat;
+    private String telephoneCandidat;
 }

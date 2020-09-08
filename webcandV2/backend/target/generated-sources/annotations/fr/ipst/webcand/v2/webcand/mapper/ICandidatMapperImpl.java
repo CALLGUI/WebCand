@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-09-07T14:35:05+0200",
+    date = "2020-09-08T15:16:45+0200",
     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 14.0.1 (Oracle Corporation)"
 )
 @Component
@@ -23,15 +23,15 @@ public class ICandidatMapperImpl implements ICandidatMapper {
 
         CandidatDto candidatDto = new CandidatDto();
 
-        candidatDto.setId_Candidat( candidatEntity.getId_Candidat() );
-        candidatDto.setNom_Candidat( candidatEntity.getNom_Candidat() );
-        candidatDto.setPrenom_Candidat( candidatEntity.getPrenom_Candidat() );
-        candidatDto.setDate_Naissance_Candidat( candidatEntity.getDate_Naissance_Candidat() );
-        candidatDto.setAdresse_Candidat( candidatEntity.getAdresse_Candidat() );
-        candidatDto.setCode_Postal_Candidat( candidatEntity.getCode_Postal_Candidat() );
-        candidatDto.setVille_Candidat( candidatEntity.getVille_Candidat() );
-        candidatDto.setPays_Candidat( candidatEntity.getPays_Candidat() );
-        candidatDto.setTelephone_Candidat( candidatEntity.getTelephone_Candidat() );
+        candidatDto.setIdCandidat( candidatEntity.getIdCandidat() );
+        candidatDto.setNomCandidat( candidatEntity.getNomCandidat() );
+        candidatDto.setPrenomCandidat( candidatEntity.getPrenomCandidat() );
+        candidatDto.setDateNaissanceCandidat( candidatEntity.getDateNaissanceCandidat() );
+        candidatDto.setAdresseCandidat( candidatEntity.getAdresseCandidat() );
+        candidatDto.setCodePostalCandidat( candidatEntity.getCodePostalCandidat() );
+        candidatDto.setVilleCandidat( candidatEntity.getVilleCandidat() );
+        candidatDto.setPaysCandidat( candidatEntity.getPaysCandidat() );
+        candidatDto.setTelephoneCandidat( candidatEntity.getTelephoneCandidat() );
 
         return candidatDto;
     }
@@ -44,15 +44,15 @@ public class ICandidatMapperImpl implements ICandidatMapper {
 
         CandidatEntity candidatEntity = new CandidatEntity();
 
-        candidatEntity.setId_Candidat( candidatDto.getId_Candidat() );
-        candidatEntity.setNom_Candidat( candidatDto.getNom_Candidat() );
-        candidatEntity.setPrenom_Candidat( candidatDto.getPrenom_Candidat() );
-        candidatEntity.setDate_Naissance_Candidat( candidatDto.getDate_Naissance_Candidat() );
-        candidatEntity.setAdresse_Candidat( candidatDto.getAdresse_Candidat() );
-        candidatEntity.setCode_Postal_Candidat( candidatDto.getCode_Postal_Candidat() );
-        candidatEntity.setVille_Candidat( candidatDto.getVille_Candidat() );
-        candidatEntity.setPays_Candidat( candidatDto.getPays_Candidat() );
-        candidatEntity.setTelephone_Candidat( candidatDto.getTelephone_Candidat() );
+        candidatEntity.setIdCandidat( candidatDto.getIdCandidat() );
+        candidatEntity.setNomCandidat( candidatDto.getNomCandidat() );
+        candidatEntity.setPrenomCandidat( candidatDto.getPrenomCandidat() );
+        candidatEntity.setDateNaissanceCandidat( candidatDto.getDateNaissanceCandidat() );
+        candidatEntity.setAdresseCandidat( candidatDto.getAdresseCandidat() );
+        candidatEntity.setCodePostalCandidat( candidatDto.getCodePostalCandidat() );
+        candidatEntity.setVilleCandidat( candidatDto.getVilleCandidat() );
+        candidatEntity.setPaysCandidat( candidatDto.getPaysCandidat() );
+        candidatEntity.setTelephoneCandidat( candidatDto.getTelephoneCandidat() );
 
         return candidatEntity;
     }

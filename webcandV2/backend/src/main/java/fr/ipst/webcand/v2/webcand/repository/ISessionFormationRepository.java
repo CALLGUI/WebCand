@@ -1,9 +1,10 @@
 package fr.ipst.webcand.v2.webcand.repository;
 
-import fr.ipst.webcand.v2.webcand.entities.FormationEntity;
+import fr.ipst.webcand.v2.webcand.entities.SessionFormationEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FormationRepo extends JpaRepository<FormationEntity, Long> {
+public interface ISessionFormationRepository extends JpaRepository<SessionFormationEntity, Long> {
+
 }

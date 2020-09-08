@@ -8,11 +8,11 @@ import java.util.Set;
 @Data
 public class FormationDto {
 
-    private long id_Formation;
+    private long idFormation;
 
-    private String intitule_Formation;
+    private String nomFormation;
 
-    private String description_Formation;
+    private String descriptionFormation;
 
     private Set<EnseignantEntity> enseignants;
 }

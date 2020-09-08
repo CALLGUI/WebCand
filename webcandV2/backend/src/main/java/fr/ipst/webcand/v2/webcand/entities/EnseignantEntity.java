@@ -21,16 +21,16 @@ public class EnseignantEntity {
     @Id
     @Column(name = "id_enseignant")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_Enseignant;
+    private Long idEnseignant;
 
     @Column(name = "nom_enseignant")
-    private String nom_Enseignant;
+    private String nomEnseignant;
 
     @Column(name = "prenom_Enseignant")
-    private String prenom_Enseignant;
+    private String prenomEnseignant;
 
     @Column(name = "titre_enseignant")
-    private String titre_Enseignant;
+    private String titreEnseignant;
 
     @Column(name = "statut_enseignant")
     @Enumerated(EnumType.STRING)

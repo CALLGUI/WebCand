@@ -14,30 +14,30 @@ public class CandidatEntity {
     @Id
     @Column(name = "id_candidat")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_Candidat;
+    private Long idCandidat;
 
     @Column(name = "nom_candidat")
-    private String nom_Candidat;
+    private String nomCandidat;
 
     @Column(name = "prenom_candidat")
-    private String prenom_Candidat;
+    private String prenomCandidat;
 
-    @Column(name = "date_Naissance_Candidat")
-    private String date_Naissance_Candidat;
+    @Column(name = "date_naissance_candidat")
+    private String dateNaissanceCandidat;
 
-    @Column(name = "adresse_Candidat")
-    private String adresse_Candidat;
+    @Column(name = "adresse_candidat")
+    private String adresseCandidat;
 
-    @Column(name = "code_Postal_Candidat")
-    private String code_Postal_Candidat;
+    @Column(name = "code_postal_candidat")
+    private String codePostalCandidat;
 
-    @Column(name = "ville_Candidat")
-    private String ville_Candidat;
+    @Column(name = "ville_candidat")
+    private String villeCandidat;
 
-    @Column(name = "pays_Candidat")
-    private String pays_Candidat;
+    @Column(name = "pays_candidat")
+    private String paysCandidat;
 
-    @Column(name = "telephone_Candidat")
-    private String telephone_Candidat;
+    @Column(name = "telephone_candidat")
+    private String telephoneCandidat;
 
 }

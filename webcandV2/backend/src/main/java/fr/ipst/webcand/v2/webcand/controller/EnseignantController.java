@@ -19,17 +19,17 @@ import java.util.List;
 public class EnseignantController {
 
     @Autowired
-    private EnseignantService cservice;
+    private EnseignantService eservice;
 
     @Autowired
-    private IEnseignantMapper cmapper;
+    private IEnseignantMapper emapper;
 
 
     @GetMapping
     @Operation(summary = "Méthode permettant de récupérer tous les enseignants.")
     public ResponseEntity<List<EnseignantDto>> getAll() {
 
-        return ResponseEntity.ok(cmapper.listeEntiteVersListeDto(cservice.getAll()));
+        return ResponseEntity.ok(emapper.listeEntiteVersListeDto(eservice.getAll()));
     }
 
 
@@ -37,9 +37,9 @@ public class EnseignantController {
     @Operation(summary = "Méthode permettant d'enregistrer un enseignant.")
     public ResponseEntity<EnseignantDto> createEnseignant(@RequestBody final EnseignantDto enseignantDto) {
 
-        final EnseignantEntity saved = cservice.save(cmapper.dtoVersEntite(enseignantDto));
+        final EnseignantEntity saved = eservice.save(emapper.dtoVersEntite(enseignantDto));
 
-        return new ResponseEntity<>(cmapper.entiteVersDto(saved), HttpStatus.CREATED);
+        return new ResponseEntity<>(emapper.entiteVersDto(saved), HttpStatus.CREATED);
     }
 
 
@@ -47,25 +47,25 @@ public class EnseignantController {
     @Operation(summary = "Méthode permettant de récupérer un enseignant.")
     public ResponseEntity<EnseignantDto> getEnseignantById(@PathVariable("id") final Long formationId) {
 
-        final EnseignantEntity cEntity = this.cservice.findById(formationId);
+        final EnseignantEntity cEntity = this.eservice.findById(formationId);
         //.orElseThrow(() -> new RessourceNotFoundException("candidat", "id", formationId));
-        return new ResponseEntity<>(cmapper.entiteVersDto(cEntity), HttpStatus.OK);
+        return new ResponseEntity<>(emapper.entiteVersDto(cEntity), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Méthode permettant de mettre à jour un enseignant.")
     public ResponseEntity<EnseignantDto> updateEnseignant(@RequestBody final EnseignantDto enseignantDto) {
 
-        final EnseignantEntity saved = this.cservice.update(cmapper.dtoVersEntite(enseignantDto));
+        final EnseignantEntity saved = this.eservice.update(emapper.dtoVersEntite(enseignantDto));
 
-        return new ResponseEntity<>(cmapper.entiteVersDto(saved), HttpStatus.OK);
+        return new ResponseEntity<>(emapper.entiteVersDto(saved), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id]")
+    @DeleteMapping("/{id}")
     @Operation(summary = "Méthode permettant de supprimer un enseignant.")
     public void deleteEnseignant(@PathVariable("id") final Long enseignantID) {
         //public ResponseEntity<?> deleteCandidat(@PathVariable("id") final Long formationId) {
-        this.cservice.deleteById(enseignantID);
+        this.eservice.deleteById(enseignantID);
         //return ResponseEntity.ok().build();
     }
 }

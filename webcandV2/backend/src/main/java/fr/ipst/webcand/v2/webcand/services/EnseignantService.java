@@ -1,7 +1,7 @@
 package fr.ipst.webcand.v2.webcand.services;
 
 import fr.ipst.webcand.v2.webcand.entities.EnseignantEntity;
-import fr.ipst.webcand.v2.webcand.repository.EnseignantRepo;
+import fr.ipst.webcand.v2.webcand.repository.IEnseignantRepository;
 import fr.ipst.webcand.v2.webcand.services.interfaces.IEnseignantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.List;
 public class EnseignantService implements IEnseignantService {
 
     @Autowired
-    private EnseignantRepo enseignantRepository;
+    private IEnseignantRepository enseignantRepository;
 
     @Override
     public List<EnseignantEntity> getAll() {
