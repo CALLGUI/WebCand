@@ -37,17 +37,10 @@ const routes = [
             {path: "listeformations", component: ListeFormations},
             {path: "Informatique", component: Informatique},
             {path: "DemarcheCandidat", component: DemarcheCandidat},
-            {path: "*", name: 'NotFound', component: NotFound},
-            
             {path: "Inscription", component: Inscription},
+            {path: "*", name: 'NotFound', component: NotFound},
         ],
     },
-    //Page erreur 404
-    {
-        path: "*",
-        name: "NotFound",
-        component: NotFound,
-    }
 ]
 
 const router = new VueRouter({
