@@ -6,15 +6,12 @@ import lombok.Data;
 @Data
 public class SessionFormationDto {
 
-
-    private Long id_Session_Formation;
-
-    private String nomSession;
+    private Long idSessionFormation;
 
     private String dateDebutSession;
 
     private String dateFinSession;
 
-    //private FormationEntity formationEntity;
+    private FormationEntity formationEntity;
 
 }

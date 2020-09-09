@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/sessionformation")
-@Tag(name = "Session de formation")
+@RequestMapping("/api/sessionsformation")
+@Tag(name = "Gestion des sessions de formation")
 public class SessionFormationController {
 
     @Autowired
@@ -56,9 +56,31 @@ public class SessionFormationController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Méthode permettant de suppreimer une session de formation")
+    @Operation(summary = "Méthode permettant de supprimer une session de formation")
     public void deleteSessionFormation(@PathVariable("id") final Long sessionFormationId) {
         this.sfservice.deleteById(sessionFormationId);
     }
+
+    @GetMapping("/datedebut/{datedebut}")
+    @Operation(summary = "Méthode permettant de trouver les sessions de formation grace a une date debut")
+    public ResponseEntity<List<SessionFormationDto>> findByDateDebutSession(@PathVariable("datedebut")final String dateDebut){
+        return ResponseEntity.ok(sfmapper.listeEntiteVersListeDto(sfservice.findByDateDebutSession(dateDebut)));
+    }
+
+    @GetMapping("/datefin/{datefin}")
+    @Operation(summary = "Méthode permettant de trouver les sessions de formation grace a une date fin")
+    public ResponseEntity<List<SessionFormationDto>> findByDateFinSession(@PathVariable("datefin")final String dateFin){
+        return ResponseEntity.ok(sfmapper.listeEntiteVersListeDto(sfservice.findByDateFinSession(dateFin)));
+    }
+
+    /*
+    Forme d'un POST JSON http://localhost:8080/api/sessionsformation
+    {
+        "dateDebutSession":2019,
+            "dateFinSession":2020,
+            "formationEntity":{
+                "idFormation":3
+            }
+    }*/
 
 }

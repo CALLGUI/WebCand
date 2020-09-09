@@ -41,4 +41,13 @@ public class SessionFormationService implements ISessionFormationService {
         sessionFormationRepository.deleteById(id);
     }
 
+    // trouver une session par date debut
+    public List<SessionFormationEntity> findByDateDebutSession(String dateDebut){
+        return sessionFormationRepository.findByDateDebutSession(dateDebut);
+    }
+
+    // trouver une session par date fin
+    public List<SessionFormationEntity> findByDateFinSession(String dateFin){
+        return sessionFormationRepository.findByDateFinSession(dateFin);
+    }
 }

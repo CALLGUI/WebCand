@@ -14,10 +14,7 @@ public class SessionFormationEntity {
     @Id
     @Column(name = "id_session_formation")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_Session_Formation;
-
-    @Column(name = "nom_session")
-    private String nomSession;
+    private Long idSessionFormation;
 
     @Column(name = "date_debut_Session")
     private String dateDebutSession;
@@ -25,8 +22,10 @@ public class SessionFormationEntity {
     @Column(name = "date_fin_session")
     private String dateFinSession;
 
-   /* @ManyToOne
-    @JoinColumn(name = "id_Formation")
-    private FormationEntity formationEntity;*/
+   @ManyToOne
+    @JoinColumn(name = "id_formation", nullable=false )
+    private FormationEntity formationEntity;
+
+
 
 }

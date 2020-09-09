@@ -42,21 +42,17 @@ public class FormationService implements IFormationService {
         formationRepository.deleteById(id);
     }
 
-    /*
-    public List<String> findAllByNomFormation(){
-        List<FormationEntity> l = formationRepository.findAllByNom_Formation();
-        List<String> listeNomsFormations = new ArrayList<>();
-        int i = l.size();
-        while ( i != 0){
-            FormationEntity fe = l.get(i);
-            String nomfor = fe.getNom_Formation();
-            listeNomsFormations.add(nomfor);
-        }
-        return listeNomsFormations;
-    }*/
 
-    public List<Map<String,Object>> testa(){
-        return formationRepository.testa();
+    public List<Map<String,Object>> AfficherLeNomDesFormations(){
+        return formationRepository.AfficherLeNomDesFormations();
+    }
+
+    public List<Map<String,Object>> AfficherInfoSessionEtFormation(long id){
+        return formationRepository.AfficherInfoSessionEtFormation(id);
+    }
+
+    public List<Map<String,Object>> AfficherLesSessionsDeLaFormation(long id){
+        return formationRepository.AfficherLesSessionsDeLaFormation(id);
     }
 
 }
