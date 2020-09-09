@@ -1,7 +1,7 @@
 <template>
   <div>
     <form>
-      <div class="col-12">
+      <div class="col-12 mx-auto">
         <h5 class="bg-info rounded text-light col-10 mx-auto mb-5">1 Choix des informations nécessaires pour la
           Formation
         </h5>
@@ -26,7 +26,7 @@
           </b-dropdown>
           <label for="example-time-input" class="col-form-label">Durée</label>
           <div class="">
-            <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+            <input class="form-control" value="" id="example-time-input">
           </div>
         </div>
         <div>
@@ -60,7 +60,7 @@
                 Vous recevrez une réponse sous peu.
               </div>
               <div class="modal-footer">
-                <a href="#/" class="btn btn-info" role="button">Accueil</a>
+                <a href="/" class="btn btn-info" role="button">Accueil</a>
               </div>
             </div>
           </div>

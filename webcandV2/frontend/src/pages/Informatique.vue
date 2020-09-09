@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <b-button variant="danger">M'inscrire à la Formation</b-button>
+      <a class="btn btn-danger" href="InscriptionInfos" role="button">M'inscrire à la Formation</a>
     </div>
     <div class="listform d-flex justify-content-left foot">
     </div>
