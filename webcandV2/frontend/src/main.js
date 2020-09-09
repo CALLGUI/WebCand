@@ -17,9 +17,11 @@ import ListeFormations from "@/components/ListeFormations";
 //imports pages
 import Home from "@/pages/Home";
 import Informatique from "@/pages/Informatique";
+import MiseEnLigneOffre from "@/pages/MiseEnLigneOffre";
 import NotFound from "@/pages/NotFound";
 import DemarcheCandidat from "@/pages/DemarcheCandidat";
 import Inscription from "@/pages/Inscription";
+
 
 
 Vue.use(BootstrapVue);
@@ -38,6 +40,7 @@ const routes = [
             {path: "Informatique", component: Informatique},
             {path: "DemarcheCandidat", component: DemarcheCandidat},
             {path: "Inscription", component: Inscription},
+            {path: "MiseEnLigneOffre", component: MiseEnLigneOffre},
             {path: "*", name: 'NotFound', component: NotFound},
         ],
     },
