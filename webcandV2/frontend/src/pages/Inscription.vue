@@ -2,7 +2,7 @@
   <div>
     <form>
       <div class="text-center">
-        <h1 class="display-3">Register</h1>
+        <h1 class="display-3">S'inscrire</h1>
         <p>Remplissez les champs ci-dessous pour vous inscrire :</p>
         <hr>
 
@@ -48,5 +48,12 @@ export default {
 </script>
 
 <style scoped>
+
+/*
+centrer les placeholder des champs d'inscription
+*/
+::-webkit-input-placeholder {
+  text-align: center;
+}
 
 </style>

@@ -13,8 +13,9 @@ import "./custom.scss";
 import MentionLegales from "@/components/MentionLegales";
 import CardComponent from "@/components/CardComponent";
 import ListeFormations from "@/components/ListeFormations";
-import Login from "@/components/Login";
+import Login from "@/pages/Login";
 import InscriptionInfos from "@/components/InscriptionInfos";
+import GestionProfil from "@/components/GestionProfil";
 
 //imports pages
 import Home from "@/pages/Home";
@@ -24,6 +25,7 @@ import NotFound from "@/pages/NotFound";
 import DemarcheCandidat from "@/pages/DemarcheCandidat";
 import Postuler from "@/pages/Postuler";
 import Inscription from "@/pages/Inscription";
+import Profil from "@/pages/Profil";
 
 
 Vue.use(BootstrapVue);
@@ -46,6 +48,8 @@ const routes = [
             {path: "Login", component: Login},
             {path: "Inscription", component: Inscription},
             {path: "InscriptionInfos", component: InscriptionInfos},
+            {path: "Profil", component: Profil},
+            {path: "GestionProfil", component: GestionProfil},
             {path: "*", name: 'NotFound', component: NotFound},
         ],
     },
