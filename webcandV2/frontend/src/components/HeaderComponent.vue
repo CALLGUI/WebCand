@@ -10,6 +10,9 @@
       <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
         <button class="btn btn-primary my-2 my-sm-0" type="submit">Chercher</button>
+        <div class="ml-3">
+          <a class="btn btn-light" href="Login" role="button">Login</a>
+        </div>
       </form>
     </nav>
 
