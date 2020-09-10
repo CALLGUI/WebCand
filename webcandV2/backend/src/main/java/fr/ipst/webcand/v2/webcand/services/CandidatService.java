@@ -40,12 +40,10 @@ public class CandidatService implements ICandidatService {
     public void deleteById(Long id) {
         candidatRepository.deleteById(id);
     }
-    
-    
+
     /*@Override
     public DataTablesOutput<CandidatEntity> findAll(DataTablesInput input) {
         return candidatRepository.findAll(input);
     }*/
-
 
 }

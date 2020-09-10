@@ -1,6 +1,8 @@
 package fr.ipst.webcand.v2.webcand.dto;
 
+import fr.ipst.webcand.v2.webcand.entities.CandidatEntity;
 import fr.ipst.webcand.v2.webcand.entities.CandidatureEntity;
+import fr.ipst.webcand.v2.webcand.entities.SessionFormationEntity;
 import lombok.Data;
 
 @Data
@@ -18,7 +20,8 @@ public class CandidatureDto {
 
     private CandidatureEntity.Etat etat;
 
-    /*private Long id_Candidat;*/
+    private CandidatEntity cCandidat;
 
-    /*private Long id_Session_Formation*/
+    private SessionFormationEntity cSessionFormation;
+
 }

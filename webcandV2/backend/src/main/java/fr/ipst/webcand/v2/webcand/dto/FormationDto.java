@@ -8,7 +8,7 @@ import java.util.Set;
 @Data
 public class FormationDto {
 
-    private long idFormation;
+    private Long idFormation;
 
     private String nomFormation;
 

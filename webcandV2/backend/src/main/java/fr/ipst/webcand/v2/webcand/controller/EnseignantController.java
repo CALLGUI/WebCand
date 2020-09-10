@@ -64,8 +64,6 @@ public class EnseignantController {
     @DeleteMapping("/{id}")
     @Operation(summary = "Méthode permettant de supprimer un enseignant.")
     public void deleteEnseignant(@PathVariable("id") final Long enseignantID) {
-        //public ResponseEntity<?> deleteCandidat(@PathVariable("id") final Long formationId) {
         this.eservice.deleteById(enseignantID);
-        //return ResponseEntity.ok().build();
     }
 }

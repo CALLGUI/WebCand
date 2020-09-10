@@ -2,6 +2,7 @@ package fr.ipst.webcand.v2.webcand.mapper;
 
 import fr.ipst.webcand.v2.webcand.dto.CandidatDto;
 import fr.ipst.webcand.v2.webcand.entities.CandidatEntity;
+import fr.ipst.webcand.v2.webcand.entities.CandidatureEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-09-09T11:47:12+0200",
+    date = "2020-09-11T00:10:46+0200",
     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 14.0.1 (Oracle Corporation)"
 )
 @Component
@@ -32,6 +33,13 @@ public class ICandidatMapperImpl implements ICandidatMapper {
         candidatDto.setVilleCandidat( candidatEntity.getVilleCandidat() );
         candidatDto.setPaysCandidat( candidatEntity.getPaysCandidat() );
         candidatDto.setTelephoneCandidat( candidatEntity.getTelephoneCandidat() );
+        List<CandidatureEntity> list = candidatEntity.getCCandidatures();
+        if ( list != null ) {
+            candidatDto.setCCandidatures( new ArrayList<CandidatureEntity>( list ) );
+        }
+        else {
+            candidatDto.setCCandidatures( null );
+        }
 
         return candidatDto;
     }
@@ -53,6 +61,13 @@ public class ICandidatMapperImpl implements ICandidatMapper {
         candidatEntity.setVilleCandidat( candidatDto.getVilleCandidat() );
         candidatEntity.setPaysCandidat( candidatDto.getPaysCandidat() );
         candidatEntity.setTelephoneCandidat( candidatDto.getTelephoneCandidat() );
+        List<CandidatureEntity> list = candidatDto.getCCandidatures();
+        if ( list != null ) {
+            candidatEntity.setCCandidatures( new ArrayList<CandidatureEntity>( list ) );
+        }
+        else {
+            candidatEntity.setCCandidatures( null );
+        }
 
         return candidatEntity;
     }

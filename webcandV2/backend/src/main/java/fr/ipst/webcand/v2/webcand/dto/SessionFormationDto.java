@@ -1,7 +1,10 @@
 package fr.ipst.webcand.v2.webcand.dto;
 
+import fr.ipst.webcand.v2.webcand.entities.CandidatureEntity;
 import fr.ipst.webcand.v2.webcand.entities.FormationEntity;
 import lombok.Data;
+
+import java.util.Set;
 
 @Data
 public class SessionFormationDto {
@@ -14,4 +17,5 @@ public class SessionFormationDto {
 
     private FormationEntity formationEntity;
 
+    private Set<CandidatureEntity> sessionCandidatures;
 }

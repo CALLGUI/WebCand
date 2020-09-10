@@ -68,7 +68,7 @@ public class CandidatController {
         return new ResponseEntity<>(cmapper.entiteVersDto(saved), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id]")
+    @DeleteMapping("/{id}")
     @Operation(summary = "Méthode permettant de supprimer un candidat.")
     public void deleteCandidat(@PathVariable("id") final Long candidatId) {
     //public ResponseEntity<?> deleteCandidat(@PathVariable("id") final Long candidatId) {

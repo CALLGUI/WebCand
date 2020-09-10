@@ -31,6 +31,7 @@ public class CandidatureController {
         return ResponseEntity.ok(cumapper.listeEntiteVersListeDto(cuservice.getAll()));
     }
 
+
     @PostMapping
     @Operation(summary = "Méthode permettant d'enregistrer une candidature")
     public ResponseEntity<CandidatureDto> createCandidature(@RequestBody final CandidatureDto candidatureDto) {
@@ -57,5 +58,16 @@ public class CandidatureController {
     public void deleteCandidature(@PathVariable("id") final Long candidatureId) {
         this.cuservice.deleteById(candidatureId);
     }
+
+
+    /*
+    @PostMapping
+    @Operation(summary = "Méthode permettant d'enregistrer une candidature")
+    public ResponseEntity<CandidatureDto> createCandidature(@RequestBody String jourJ
+                                                                            ,Long idSessionFormation,Long idCandidat){
+        final CandidatureEntity saved = cuservice
+                .createCandidatureWithAssociation(jourJ, idSessionFormation, idCandidat);
+        return new ResponseEntity<>(cumapper.entiteVersDto(saved), HttpStatus.CREATED);
+    }*/
 
 }
