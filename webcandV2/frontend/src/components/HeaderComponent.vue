@@ -12,6 +12,7 @@
         <button class="btn btn-primary my-2 my-sm-0" type="submit">Chercher</button>
         <div class="ml-3">
           <a class="btn btn-light" href="Login" role="button">Login</a>
+          <router-link class="navbar-brand" to="/Profil">Profil</router-link>
         </div>
       </form>
     </nav>
