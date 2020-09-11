@@ -12,7 +12,7 @@ import java.util.Set;
 @Entity
 @Table(name = "sessions_formation")
 @Data
-@EqualsAndHashCode(exclude = {"formationEntity", "sessionCandidatures"})
+@EqualsAndHashCode(exclude = {"sessionCandidatures"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
         , property = "idSessionFormation", scope = Long.class)
 @SQLDelete(sql = "DELETE FROM sessionFormation WHERE id_session_formation = ?")
@@ -29,6 +29,7 @@ public class SessionFormationEntity {
     @Column(name = "date_fin_session")
     private String dateFinSession;
 
+
                             /* Table d'associations */
     @ManyToOne
     @JoinColumn(name = "id_formation", nullable=false )
@@ -42,9 +43,5 @@ public class SessionFormationEntity {
     @JsonIgnoreProperties("cSessionFormation")
     private Set<CandidatureEntity> sessionCandidatures = new HashSet<>();
 
-    /*
-    @OneToMany(targetEntity=CandidatureEntity.class, mappedBy = "cSessionFormation")
-    @JsonIgnoreProperties
-    private Set<CandidatureEntity> candidatures = new HashSet<>();*/
 
 }

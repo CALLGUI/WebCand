@@ -32,6 +32,7 @@ public class FormationEntity {
     @Column(name="description_formation")
     private String descriptionFormation;
 
+
                             /* Table d'associations */
     @ManyToMany(mappedBy = "formations")
     @JsonIgnoreProperties("formations")

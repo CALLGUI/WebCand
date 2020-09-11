@@ -53,14 +53,4 @@ public class EnseignantEntity {
     @JsonIgnoreProperties("enseignants")
     private Set<FormationEntity> formations = new HashSet<>();
 
-    /*
-    public void addFormation(FormationEntity formation) {
-        formations.add(formation);
-        formation.getEnseignants().add(this);
-    }
-
-    public void removeFormation(FormationEntity formation) {
-        formations.remove(formation);
-        formation.getEnseignants().remove(this);
-    }*/
 }
