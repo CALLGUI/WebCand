@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-09-11T12:01:03+0200",
+    date = "2020-09-11T12:53:18+0200",
     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 14.0.1 (Oracle Corporation)"
 )
 @Component
@@ -37,7 +37,7 @@ public class ICandidatMapperImpl implements ICandidatMapper {
         candidatDto.setTelephoneCandidat( candidatEntity.getTelephoneCandidat() );
         Set<CandidatureEntity> set = candidatEntity.getCCandidatures();
         if ( set != null ) {
-            candidatDto.setCCandidatures( new ArrayList<CandidatureEntity>( set ) );
+            candidatDto.setCCandidatures( new HashSet<CandidatureEntity>( set ) );
         }
         else {
             candidatDto.setCCandidatures( null );
@@ -63,9 +63,9 @@ public class ICandidatMapperImpl implements ICandidatMapper {
         candidatEntity.setVilleCandidat( candidatDto.getVilleCandidat() );
         candidatEntity.setPaysCandidat( candidatDto.getPaysCandidat() );
         candidatEntity.setTelephoneCandidat( candidatDto.getTelephoneCandidat() );
-        List<CandidatureEntity> list = candidatDto.getCCandidatures();
-        if ( list != null ) {
-            candidatEntity.setCCandidatures( new HashSet<CandidatureEntity>( list ) );
+        Set<CandidatureEntity> set = candidatDto.getCCandidatures();
+        if ( set != null ) {
+            candidatEntity.setCCandidatures( new HashSet<CandidatureEntity>( set ) );
         }
         else {
             candidatEntity.setCCandidatures( null );
