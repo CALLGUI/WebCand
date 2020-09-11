@@ -1,9 +1,11 @@
 package fr.ipst.webcand.v2.webcand.entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
@@ -13,6 +15,7 @@ import java.util.Set;
 @Entity
 @Table(name ="formations")
 @Data
+@EqualsAndHashCode(exclude = {"enseignants"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
         , property = "idFormation", scope = Long.class)
 @SQLDelete(sql = "DELETE FROM formations WHERE id_formation = ?")
@@ -29,7 +32,8 @@ public class FormationEntity {
     @Column(name="description_formation")
     private String descriptionFormation;
 
+                            /* Table d'associations */
     @ManyToMany(mappedBy = "formations")
-    @JsonManagedReference(value = "enseignant-formation")
+    @JsonIgnoreProperties("formations")
     private Set<EnseignantEntity> enseignants = new HashSet<>();
 }

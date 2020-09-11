@@ -1,6 +1,5 @@
 package fr.ipst.webcand.v2.webcand.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import fr.ipst.webcand.v2.webcand.entities.CandidatureEntity;
 import lombok.Data;
 
@@ -27,6 +26,5 @@ public class CandidatDto {
 
     private String telephoneCandidat;
 
-    @JsonIgnoreProperties("cCandidat")
     private List<CandidatureEntity> cCandidatures;
 }

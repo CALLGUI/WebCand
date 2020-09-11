@@ -2,15 +2,19 @@ package fr.ipst.webcand.v2.webcand.entities;
 
 import com.fasterxml.jackson.annotation.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "candidats")
 @Data
+@EqualsAndHashCode(exclude = {"cCandidatures"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
         , property = "idCandidat", scope = Long.class)
 @SQLDelete(sql = "DELETE FROM candidats WHERE id_candidat = ?")
@@ -45,14 +49,19 @@ public class CandidatEntity {
     @Column(name = "telephone_candidat")
     private String telephoneCandidat;
 
-    @OneToMany(targetEntity=CandidatureEntity.class, mappedBy = "cCandidat")
-    @JsonIgnoreProperties
-    private List<CandidatureEntity> cCandidatures = new ArrayList<>();
 
-    /*
-    @OneToMany//(cascade= CascadeType.ALL)
+                        /* Table d'associations */
+    @OneToMany(cascade= CascadeType.ALL)
     @JoinTable( name = "candidature_candidat_associations",
             joinColumns = @JoinColumn( name = "id_candidat" ),
             inverseJoinColumns = @JoinColumn( name = "id_candidature"))
-    private Set<CandidatureEntity> cCandidatures = new HashSet<>();*/
+    @JsonIgnoreProperties("cCandidat")
+    private Set<CandidatureEntity> cCandidatures = new HashSet<>();
+
+        /*
+    @OneToMany(targetEntity=CandidatureEntity.class
+            , mappedBy = "cCandidat"
+            ,cascade = CascadeType.ALL)
+    @JsonIgnoreProperties
+    private List<CandidatureEntity> cCandidatures = new ArrayList<>();*/
 }

@@ -2,6 +2,7 @@ package fr.ipst.webcand.v2.webcand.entities;
 
 import com.fasterxml.jackson.annotation.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "candidatures")
 @Data
+@EqualsAndHashCode(exclude = {"cCandidat", "cSessionFormation"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
         , property = "idCandidature", scope = Long.class)
 @SQLDelete(sql = "DELETE FROM candidatures WHERE id_candidature = ?")
@@ -33,7 +35,16 @@ public class CandidatureEntity {
     @Enumerated(EnumType.STRING)
     private CandidatureEntity.Etat etat = Etat.En_cours_de_traitement;
 
-    @ManyToOne
+                        /* Table d'associations */
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("cCandidatures")
+    private CandidatEntity cCandidat;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("sessionCandidatures")
+    private SessionFormationEntity cSessionFormation;
+
+    /*@ManyToOne
     @JoinColumn(name = "fk_id_candidat")
     @JsonIgnoreProperties
     private CandidatEntity cCandidat;
@@ -41,19 +52,6 @@ public class CandidatureEntity {
     @ManyToOne
     @JoinColumn(name = "fk_id_session_formation")
     @JsonIgnoreProperties
-    private SessionFormationEntity cSessionFormation;
-
-    /*
-    @ManyToOne
-    @JoinTable( name = "candidature_candidat_associations",
-            joinColumns = @JoinColumn( name = "id_candidature" ),
-            inverseJoinColumns = @JoinColumn( name = "id_candidat" ) )
-    private CandidatEntity cCandidat;
-
-    @ManyToOne
-    @JoinTable( name = "candidature_session_associations",
-            joinColumns = @JoinColumn( name = "id_candidature" ),
-            inverseJoinColumns = @JoinColumn( name = "id_session_formation" ) )
     private SessionFormationEntity cSessionFormation;*/
 
 }
