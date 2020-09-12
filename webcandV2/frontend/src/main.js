@@ -2,17 +2,6 @@ import Vue from "vue";
 import App from "./App.vue";
 import VueRouter from "vue-router";
 
-//Font-awesome
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
-library.add(faUserSecret)
-
-Vue.component('font-awesome-icon', FontAwesomeIcon)
-
-Vue.config.productionTip = false
-
 import {BootstrapVue, IconsPlugin} from "bootstrap-vue";
 
 //imports
@@ -37,6 +26,7 @@ import DemarcheCandidat from "@/pages/DemarcheCandidat";
 import Postuler from "@/pages/Postuler";
 import Inscription from "@/pages/Inscription";
 import Profil from "@/pages/Profil";
+import FormationsApp from "./components/FormationsApp";
 
 
 
@@ -60,6 +50,10 @@ const routes = [
             {path: "/Login", component: Login},
             {path: "/Inscription", component: Inscription},
             {path: "/InscriptionInfos", component: InscriptionInfos},
+
+            //Appel au back api
+            {path: "/api/formations", component: FormationsApp},
+            {path: "/api/formations/:id", component: FormationsApp},
 
             {path: "Profil", component: Profil,
             children: [
