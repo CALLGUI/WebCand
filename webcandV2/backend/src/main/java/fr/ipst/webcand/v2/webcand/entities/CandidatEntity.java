@@ -47,7 +47,7 @@ public class CandidatEntity {
     private String telephoneCandidat;
 
 
-                        /* Table d'associations */
+                        /* Table d'associations et relations */
     @OneToMany(cascade= CascadeType.ALL)
     @JoinTable( name = "candidature_candidat_associations",
             joinColumns = @JoinColumn( name = "id_candidat" ),

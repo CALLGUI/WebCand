@@ -30,7 +30,7 @@ public class SessionFormationEntity {
     private String dateFinSession;
 
 
-                            /* Table d'associations */
+                            /* Table d'associations et relations */
     @ManyToOne
     @JoinColumn(name = "id_formation", nullable=false )
     @JsonIgnoreProperties

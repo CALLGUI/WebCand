@@ -36,7 +36,7 @@ public class CandidatureEntity {
     private CandidatureEntity.Etat etat = Etat.En_cours_de_traitement;
 
 
-                        /* Table d'associations */
+                        /* Table d'associations et relations */
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties("cCandidatures")
     private CandidatEntity cCandidat;

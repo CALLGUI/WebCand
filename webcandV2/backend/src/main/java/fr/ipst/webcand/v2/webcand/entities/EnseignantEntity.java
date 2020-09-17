@@ -45,7 +45,7 @@ public class EnseignantEntity {
     private EnseignantEntity.Statut statut;
 
 
-                            /* Table d'associations */
+                            /* Table d'associations et relations */
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "jury",
             joinColumns = @JoinColumn(name = "id_Enseignant"),

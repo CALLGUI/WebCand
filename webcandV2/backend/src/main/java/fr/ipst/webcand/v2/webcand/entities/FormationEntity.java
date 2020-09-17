@@ -33,7 +33,7 @@ public class FormationEntity {
     private String descriptionFormation;
 
 
-                            /* Table d'associations */
+                            /* Table d'associations et relations */
     @ManyToMany(mappedBy = "formations")
     @JsonIgnoreProperties("formations")
     private Set<EnseignantEntity> enseignants = new HashSet<>();

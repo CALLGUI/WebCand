@@ -76,4 +76,23 @@ public class CandidatController {
         //return ResponseEntity.ok().build();
     }
 
+    /*
+    Forme d'un POST JSON http://localhost:8080/api/candidats
+    {
+        "idCandidat": 50,
+            "nomCandidat": "tatat",
+            "prenomCandidat": "tatatata",
+            "dateNaissanceCandidat": "00/00/1900",
+            "adresseCandidat": "10 0rue",
+            "codePostalCandidat": "31100000",
+            "villeCandidat": "Toulouseeeee",
+            "paysCandidat": "franceeeee",
+            "telephoneCandidat": "0600000000",
+            "ccandidatures":[
+                {
+                    "idCandidature": 5
+                }
+            ]
+    }
+    */
 }
