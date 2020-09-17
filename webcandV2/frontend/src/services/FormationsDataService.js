@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const INDEX_API_URL = "http://localhost:8081/api";
-const FORMATIONS_API_URL = `${INDEX_API_URL}/formations/`;
+const FORMATIONS_API_URL = `${INDEX_API_URL}/formations`;
 
 class FormationsDataService {
     retrieveAllFormations() {

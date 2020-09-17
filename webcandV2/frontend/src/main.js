@@ -29,7 +29,6 @@ import Profil from "@/pages/Profil";
 import FormationsApp from "./components/FormationsApp";
 
 
-
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(VueRouter);
@@ -51,14 +50,19 @@ const routes = [
             {path: "/Inscription", component: Inscription},
             {path: "/InscriptionInfos", component: InscriptionInfos},
 
-            //Appel au back api
-            {path: "/api/formations", component: FormationsApp},
-            {path: "/api/formations/:id", component: FormationsApp},
 
-            {path: "Profil", component: Profil,
-            children: [
-                {path: "GestionProfil", component: GestionProfil},
-            ]},
+            //Appel au back api
+            //{path: "/api/formation/", component: Formation},
+            {path: "/api/Formations/:id", component: Formation},
+            {path: "/api/Formations/", component: FormationsApp},
+            {path: "/api/Formations/:id", component: FormationsApp},
+
+            {
+                path: "Profil", component: Profil,
+                children: [
+                    {path: "GestionProfil", component: GestionProfil},
+                ]
+            },
 
             {path: "*", name: '/NotFound', component: NotFound},
         ],
