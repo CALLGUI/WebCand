@@ -77,11 +77,15 @@ public class SessionFormationController {
     /*
     Forme d'un POST JSON http://localhost:8080/api/sessionsformation
     {
-        "dateDebutSession":2019,
-            "dateFinSession":2020,
-            "formationEntity":{
-                "idFormation":1
+        "dateDebutSession": "2019",
+        "dateFinSession": "2020",
+        "formationEntity": {
+        },
+        "sessionCandidatures": [
+            {
+                "idCandidature": 12
             }
+        ]
     }*/
 
 }
