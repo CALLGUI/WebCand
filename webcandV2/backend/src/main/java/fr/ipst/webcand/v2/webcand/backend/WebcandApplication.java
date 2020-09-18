@@ -13,6 +13,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.Collections;
 
@@ -30,7 +32,7 @@ public class WebcandApplication {
         SpringApplication.run(WebcandApplication.class, args);
     }
 
-    // Fix the CORS errors
+    /*// Fix the CORS errors
     @Value("${cors.allowedOrigins}")
     private String allowedOrigins;
 
@@ -49,5 +51,16 @@ public class WebcandApplication {
         FilterRegistrationBean bean = new FilterRegistrationBean<>(new CorsFilter(source));
         bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
         return bean;
+    }*/
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:8080");
+            }
+        };
     }
 }
