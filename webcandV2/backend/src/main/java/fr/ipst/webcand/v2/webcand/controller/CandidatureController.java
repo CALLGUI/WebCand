@@ -1,6 +1,5 @@
 package fr.ipst.webcand.v2.webcand.controller;
 
-
 import fr.ipst.webcand.v2.webcand.dto.CandidatureDto;
 import fr.ipst.webcand.v2.webcand.entities.CandidatureEntity;
 import fr.ipst.webcand.v2.webcand.mapper.ICandidatureMapper;
@@ -28,14 +27,15 @@ public class CandidatureController {
     @GetMapping
     @Operation(summary = "Méthode permettant de récupérer toutes les candidatures")
     public ResponseEntity<List<CandidatureDto>> getAll() {
+
         return ResponseEntity.ok(cumapper.listeEntiteVersListeDto(cuservice.getAll()));
     }
-
 
     @PostMapping
     @Operation(summary = "Méthode permettant d'enregistrer une candidature")
     public ResponseEntity<CandidatureDto> createCandidature(@RequestBody final CandidatureDto candidatureDto) {
         final CandidatureEntity saved = cuservice.save(cumapper.dtoVersEntite(candidatureDto));
+
         return new ResponseEntity<>(cumapper.entiteVersDto(saved), HttpStatus.CREATED);
     }
 
@@ -43,6 +43,7 @@ public class CandidatureController {
     @Operation(summary = "Méthode permettant de récupérer une candidature")
     public ResponseEntity<CandidatureDto> getCandidatureById(@PathVariable("id") final Long candidatureId) {
         final CandidatureEntity cuEntity = this.cuservice.findById(candidatureId);
+
         return new ResponseEntity<>(cumapper.entiteVersDto(cuEntity), HttpStatus.OK);
     }
 

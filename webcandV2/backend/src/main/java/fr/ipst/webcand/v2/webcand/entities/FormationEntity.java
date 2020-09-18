@@ -32,9 +32,10 @@ public class FormationEntity {
 
                             /* Table d'associations et relations */
     @OneToMany(mappedBy = "formationEntity", cascade =  CascadeType.ALL, orphanRemoval=true)
-    private Set<SessionFormationEntity> sSessionFormationEntity = new HashSet<>();
+    @JsonIgnoreProperties
+    private Set<SessionFormationEntity> sSessionFormation= new HashSet<>();
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "formations")
+    @ManyToMany(mappedBy = "formations", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("formations")
     private Set<EnseignantEntity> enseignants = new HashSet<>();
 }

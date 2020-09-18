@@ -29,7 +29,7 @@ public class SessionFormationEntity {
 
 
                             /* Table d'associations et relations */
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_formation", nullable=false )
     @JsonIgnoreProperties
     private FormationEntity formationEntity;

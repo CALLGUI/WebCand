@@ -2,13 +2,12 @@ package fr.ipst.webcand.v2.webcand.controller;
 
 import fr.ipst.webcand.v2.webcand.dto.SessionFormationDto;
 import fr.ipst.webcand.v2.webcand.entities.SessionFormationEntity;
-import fr.ipst.webcand.v2.webcand.mapper.ISessionFormatinMapper;
+import fr.ipst.webcand.v2.webcand.mapper.ISessionFormationMapper;
 import fr.ipst.webcand.v2.webcand.services.SessionFormationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +22,7 @@ public class SessionFormationController {
     private SessionFormationService sfservice;
 
     @Autowired
-    private ISessionFormatinMapper sfmapper;
+    private ISessionFormationMapper sfmapper;
 
     @GetMapping
     @Operation(summary = "Méthode permettant de récupérer les sessions de formations")

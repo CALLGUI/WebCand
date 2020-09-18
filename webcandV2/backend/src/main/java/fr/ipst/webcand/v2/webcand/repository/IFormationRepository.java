@@ -10,7 +10,6 @@ import java.util.Map;
 
 @Repository
 public interface IFormationRepository extends JpaRepository<FormationEntity, Long> {
-                                           // , FormationRepositoryCustom {
 
     @Query(value = "SELECT nom_Formation FROM formations " , nativeQuery = true)
     List<Map<String,Object>> AfficherLeNomDesFormations();

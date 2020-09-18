@@ -17,5 +17,5 @@ public class FormationDto {
 
     private Set<EnseignantEntity> enseignants;
 
-    private Set<SessionFormationEntity> sSessionFormationEntity;
+    private Set<SessionFormationEntity> sSessionFormation;
 }

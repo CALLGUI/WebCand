@@ -3,7 +3,6 @@ package fr.ipst.webcand.v2.webcand.entities;
 import com.fasterxml.jackson.annotation.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -15,7 +14,6 @@ import java.util.Set;
 @EqualsAndHashCode(exclude = {"cCandidatures"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
         , property = "idCandidat", scope = Long.class)
-@SQLDelete(sql = "DELETE FROM candidats WHERE id_candidat = ?")
 public class CandidatEntity {
 
     @Id
@@ -49,9 +47,7 @@ public class CandidatEntity {
 
 
                         /* Table d'associations et relations */
-    @OneToMany(mappedBy = "cCandidat",orphanRemoval = true,
-            cascade= CascadeType.ALL)
-    @JsonIgnoreProperties("cCandidat")
+    @OneToMany(mappedBy = "cCandidat", cascade= CascadeType.ALL, orphanRemoval = true)
     private Set<CandidatureEntity> cCandidatures = new HashSet<>();
 
     /*

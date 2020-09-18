@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/candidats")
@@ -39,7 +40,6 @@ public class CandidatController {
         return ResponseEntity.ok(cmapper.listeEntiteVersListeDto(cservice.getAll()));
     }
 
-
     @PostMapping
     @Operation(summary = "Méthode permettant d'enregistrer un candidat.")
     public ResponseEntity<CandidatDto> createCandidat(@RequestBody final CandidatDto candidatDto) {
@@ -48,7 +48,6 @@ public class CandidatController {
 
         return new ResponseEntity<>(cmapper.entiteVersDto(saved), HttpStatus.CREATED);
     }
-
 
     @GetMapping("/{id}")
     @Operation(summary = "Méthode permettant de récupérer un candidat.")
@@ -74,6 +73,12 @@ public class CandidatController {
     //public ResponseEntity<?> deleteCandidat(@PathVariable("id") final Long candidatId) {
         this.cservice.deleteById(candidatId);
         //return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{id}/candidatures")
+    @Operation(summary = "Méthode permettant d'afficher les candidatures du candidat.")
+    public ResponseEntity<List<Map<String,Object>>> AfficherLesSessionsDeLaFormation(@PathVariable("id") long id){
+        return ResponseEntity.ok(cservice.AfficherLesCandidaturesDuCandidat(id));
     }
 
     /*

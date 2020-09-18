@@ -3,7 +3,6 @@ package fr.ipst.webcand.v2.webcand.entities;
 import com.fasterxml.jackson.annotation.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
 
@@ -13,7 +12,6 @@ import javax.persistence.*;
 @EqualsAndHashCode(exclude = {"cCandidat", "cSessionFormation"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
         , property = "idCandidature", scope = Long.class)
-@SQLDelete(sql = "DELETE FROM candidatures WHERE id_candidature = ?")
 public class CandidatureEntity {
 
     public enum Etat {
@@ -37,12 +35,13 @@ public class CandidatureEntity {
 
 
                         /* Table d'associations et relations */
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="id_candidat", nullable=false)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(name="id_candidat")//, nullable=false )
     @JsonIgnoreProperties
     private CandidatEntity cCandidat;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JoinColumn(name="id_session_formation")
     @JsonIgnoreProperties("sessionCandidatures")
     private SessionFormationEntity cSessionFormation;
 
