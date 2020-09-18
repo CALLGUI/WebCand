@@ -27,7 +27,7 @@ public class SessionFormationUCService {
             return null;
         }
 
-        formation.getSSessionFormation().add(session);
+        formation.getSessions().add(session);
 
         return session;
     }
@@ -41,6 +41,6 @@ public class SessionFormationUCService {
         }
         SessionFormationEntity session = sessionRepository.findById(idSession).
                 orElseThrow(()->new RessourceNotFoundException("session","id","idSession"));
-        formation.getSSessionFormation().remove(session);
+        formation.getSessions().remove(session);
     }
 }

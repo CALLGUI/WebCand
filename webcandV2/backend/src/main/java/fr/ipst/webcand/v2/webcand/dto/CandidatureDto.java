@@ -20,8 +20,8 @@ public class CandidatureDto {
 
     private CandidatureEntity.Etat etat;
 
-    private CandidatEntity cCandidat;
+    private CandidatEntity candidat;
 
-    private SessionFormationEntity cSessionFormation;
+    private SessionFormationEntity sesssionFormation;
 
 }

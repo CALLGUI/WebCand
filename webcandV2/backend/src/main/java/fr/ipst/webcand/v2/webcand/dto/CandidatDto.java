@@ -26,5 +26,5 @@ public class CandidatDto {
 
     private String telephoneCandidat;
 
-    private Set<CandidatureEntity> cCandidatures;
+    private Set<CandidatureEntity> candidatures;
 }

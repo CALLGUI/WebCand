@@ -18,8 +18,7 @@ import java.util.Set;
 @Data
 @EqualsAndHashCode(exclude = {"formations"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
-        , property = "idEnseignant", scope = Long.class)
-@SQLDelete(sql = "DELETE FROM enseignants WHERE id_enseignant = ?")
+        , property = "idEnseignant", scope = EnseignantEntity.class)
 public class EnseignantEntity {
 
     public enum Statut {

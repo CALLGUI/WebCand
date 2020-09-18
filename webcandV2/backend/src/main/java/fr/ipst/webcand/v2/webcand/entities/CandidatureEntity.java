@@ -9,9 +9,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "candidatures")
 @Data
-@EqualsAndHashCode(exclude = {"cCandidat", "cSessionFormation"})
+@EqualsAndHashCode(exclude = {"candidat", "sesssionFormation"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
-        , property = "idCandidature", scope = Long.class)
+        , property = "idCandidature", scope = CandidatureEntity.class)
 public class CandidatureEntity {
 
     public enum Etat {
@@ -35,14 +35,14 @@ public class CandidatureEntity {
 
 
                         /* Table d'associations et relations */
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinColumn(name="id_candidat")//, nullable=false )
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(referencedColumnName ="id_candidat" ,name = "id_candidat", nullable=false)
     @JsonIgnoreProperties
-    private CandidatEntity cCandidat;
+    private CandidatEntity candidat;
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-    @JoinColumn(name="id_session_formation")
-    @JsonIgnoreProperties("sessionCandidatures")
-    private SessionFormationEntity cSessionFormation;
+    @JoinColumn(referencedColumnName ="id_session_formation",name="id_session", nullable=false)
+    @JsonIgnoreProperties("candidatures")
+    private SessionFormationEntity sesssionFormation;
 
 }

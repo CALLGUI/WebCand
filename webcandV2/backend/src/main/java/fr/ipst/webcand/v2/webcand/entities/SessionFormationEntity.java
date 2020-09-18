@@ -11,9 +11,9 @@ import java.util.Set;
 @Entity
 @Table(name = "sessions_formation")
 @Data
-@EqualsAndHashCode(exclude = {"sessionCandidatures","formationEntity"})
+@EqualsAndHashCode(exclude = {"candidatures","formation"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
-        , property = "idSessionFormation", scope = Long.class)
+        , property = "idSessionFormation", scope = SessionFormationEntity.class)
 public class SessionFormationEntity {
 
     @Id
@@ -30,16 +30,16 @@ public class SessionFormationEntity {
 
                             /* Table d'associations et relations */
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_formation", nullable=false )
+    @JoinColumn(referencedColumnName ="id_formation",name = "id_formation", nullable=false )
     @JsonIgnoreProperties
-    private FormationEntity formationEntity;
+    private FormationEntity formation;
 
     @OneToMany(cascade= CascadeType.ALL)
     @JoinTable( name = "candidature_session_associations",
             joinColumns = @JoinColumn( name = "id_session_formation" ),
             inverseJoinColumns = @JoinColumn( name = "id_candidature"))
-    @JsonIgnoreProperties("cSessionFormation")
-    private Set<CandidatureEntity> sessionCandidatures = new HashSet<>();
+    @JsonIgnoreProperties("sesssionFormation")
+    private Set<CandidatureEntity> candidatures = new HashSet<>();
 
 
 }

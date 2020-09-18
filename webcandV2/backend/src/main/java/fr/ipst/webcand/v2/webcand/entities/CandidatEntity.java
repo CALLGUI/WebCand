@@ -11,9 +11,9 @@ import java.util.Set;
 @Entity
 @Table(name = "candidats")
 @Data
-@EqualsAndHashCode(exclude = {"cCandidatures"})
+@EqualsAndHashCode(exclude = {"candidatures"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
-        , property = "idCandidat", scope = Long.class)
+        , property = "idCandidat", scope = CandidatEntity.class)
 public class CandidatEntity {
 
     @Id
@@ -47,8 +47,8 @@ public class CandidatEntity {
 
 
                         /* Table d'associations et relations */
-    @OneToMany(mappedBy = "cCandidat", cascade= CascadeType.ALL, orphanRemoval = true)
-    private Set<CandidatureEntity> cCandidatures = new HashSet<>();
+    @OneToMany(mappedBy = "candidat", cascade= CascadeType.ALL, orphanRemoval = true)
+    private Set<CandidatureEntity> candidatures = new HashSet<>();
 
     /*
     public void addCandidature (CandidatureEntity ccand){

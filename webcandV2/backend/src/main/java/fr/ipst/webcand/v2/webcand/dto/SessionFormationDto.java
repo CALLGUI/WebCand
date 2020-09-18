@@ -15,7 +15,7 @@ public class SessionFormationDto {
 
     private String dateFinSession;
 
-    private FormationEntity formationEntity;
+    private FormationEntity formation;
 
-    private Set<CandidatureEntity> sessionCandidatures;
+    private Set<CandidatureEntity> candidatures;
 }
