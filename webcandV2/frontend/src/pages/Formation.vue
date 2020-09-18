@@ -3,7 +3,7 @@
     <b-row class="d-flex justify-content-between">
       <div class="bg-light col-10">
         <a class="">
-          <h3>NOM DE LA FORMATION :</h3>
+          <h3>NOM DE LA FORMATION : {{ formation.nomFormation }}</h3>
           <p>Durée de la Formation :</p>
         </a>
       </div>
@@ -17,7 +17,7 @@
         <div class="bg-light">
           <a class="">
             <h3>Descriptif Formation</h3>
-            <p>Est camerarius vita, cesaris. Favere absolute ducunt ad rusticus ignigena.</p>
+            <p>{{ formation.descriptionFormation }}</p>
           </a>
         </div>
       </div>
@@ -39,22 +39,49 @@
         </a>
       </div>
     </div>
+    <div class="">
+      <div class="bg-light mb-5">
+        <a class="">
+          <h3>Enseignants</h3>
+          <p>{{formation.enseignants}}</p>
+        </a>
+      </div>
+    </div>
     <div class="d-flex justify-content-center">
       <a class="btn btn-danger" href="InscriptionInfos" role="button">M'inscrire à la Formation</a>
     </div>
     <div class="listform d-flex justify-content-left foot">
     </div>
-    <router-view></router-view>
   </div>
 </template>
 
 <script>
 
+
+import FormationsDataService from "../services/FormationsDataService";
+
 export default {
-  name: "Informatique",
-  components: {
+  name: "Formation",
+  data() {
+    return {
+      formation: [
+      ]
+    };
   },
-};
+  methods: {
+    refreshFormations() {
+      let IdFormation = parseInt(this.$route.params.id);
+      FormationsDataService.retrieveUneFormations(IdFormation)
+          .then(response => {
+            this.formation = response.data;
+          });
+      console.log(this.$route.params)
+    }
+  },
+  created() {
+    this.refreshFormations();
+  }
+}
 
 </script>
 
