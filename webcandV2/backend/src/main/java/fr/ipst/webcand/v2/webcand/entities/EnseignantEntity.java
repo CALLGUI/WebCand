@@ -46,7 +46,7 @@ public class EnseignantEntity {
 
 
                             /* Table d'associations et relations */
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "jury",
             joinColumns = @JoinColumn(name = "id_Enseignant"),
             inverseJoinColumns = @JoinColumn(name = "id_Formation"))

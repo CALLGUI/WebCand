@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -14,10 +13,9 @@ import java.util.Set;
 @Entity
 @Table(name ="formations")
 @Data
-@EqualsAndHashCode(exclude = {"enseignants"})
+@EqualsAndHashCode(exclude = {"enseignants","sSessionFormationEntity"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
         , property = "idFormation", scope = Long.class)
-@SQLDelete(sql = "DELETE FROM formations WHERE id_formation = ?")
 public class FormationEntity {
 
     @Id
@@ -33,7 +31,10 @@ public class FormationEntity {
 
 
                             /* Table d'associations et relations */
-    @ManyToMany(mappedBy = "formations")
+    @OneToMany(mappedBy = "formationEntity", cascade =  CascadeType.ALL, orphanRemoval=true)
+    private Set<SessionFormationEntity> sSessionFormationEntity = new HashSet<>();
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "formations")
     @JsonIgnoreProperties("formations")
     private Set<EnseignantEntity> enseignants = new HashSet<>();
 }

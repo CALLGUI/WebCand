@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "candidatures")
 @Data
-//@EqualsAndHashCode(exclude = {"cCandidat", "cSessionFormation"})
+@EqualsAndHashCode(exclude = {"cCandidat", "cSessionFormation"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
         , property = "idCandidature", scope = Long.class)
 @SQLDelete(sql = "DELETE FROM candidatures WHERE id_candidature = ?")
@@ -37,11 +37,12 @@ public class CandidatureEntity {
 
 
                         /* Table d'associations et relations */
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("cCandidatures")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="id_candidat", nullable=false)
+    @JsonIgnoreProperties
     private CandidatEntity cCandidat;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties("sessionCandidatures")
     private SessionFormationEntity cSessionFormation;
 

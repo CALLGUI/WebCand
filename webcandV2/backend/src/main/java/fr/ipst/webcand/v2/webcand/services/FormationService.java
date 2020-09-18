@@ -42,7 +42,6 @@ public class FormationService implements IFormationService {
         formationRepository.deleteById(id);
     }
 
-
     public List<Map<String,Object>> AfficherLeNomDesFormations(){
         return formationRepository.AfficherLeNomDesFormations();
     }
@@ -54,5 +53,4 @@ public class FormationService implements IFormationService {
     public List<Map<String,Object>> AfficherLesSessionsDeLaFormation(long id){
         return formationRepository.AfficherLesSessionsDeLaFormation(id);
     }
-
 }

@@ -27,19 +27,36 @@ public class CandidatureService implements ICandidatureService {
     }
 
     @Override
-    public CandidatureEntity save(CandidatureEntity newCandidature) {
-        return candidatureRepository.save(newCandidature);
+    public CandidatureEntity update(CandidatureEntity candidatureEntity) {
+        return candidatureRepository.saveAndFlush(candidatureEntity);
     }
 
     @Override
-    public CandidatureEntity update(CandidatureEntity candidatureEntity) {
-        return candidatureRepository.saveAndFlush(candidatureEntity);
+    public CandidatureEntity save(CandidatureEntity candidatureEntity) {
+        return candidatureRepository.save(candidatureEntity);
     }
 
     @Override
     public void deleteById(Long id) {
         candidatureRepository.deleteById(id);
     }
+    /*
+    @Override
+    public CandidatureEntity save(CandidatureEntity newCandidature){
+        CandidatEntity temp = newCandidature.getCCandidat();
+        temp.addCandidature(newCandidature);
+        return candidatureRepository.save(newCandidature);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        CandidatureEntity effaceur = findById(id);
+        CandidatEntity temp = effaceur.getCCandidat();
+        temp.removeCandidature(effaceur);
+        candidatureRepository.deleteById(id);
+    }
+    */
+
     /*
     public void createCandidatureSessionAssociation(Long idCandidature, Long idSessionFormation) {
         candidatureRepository.createCandidatureSessionAssociation(idCandidature, idSessionFormation);

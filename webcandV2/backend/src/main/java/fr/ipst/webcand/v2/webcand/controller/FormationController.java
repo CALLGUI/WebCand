@@ -70,21 +70,31 @@ public class FormationController {
         //return ResponseEntity.ok().build();
     }
 
+    /* Affichage information specifique avec des requetes SQL natives >repo< */
     @GetMapping("/noms")
     @Operation(summary = "Méthode permettant d'afficher les noms de formation.")
     public ResponseEntity<List<Map<String,Object>>> AfficherLeNomDesFormations(){
         return ResponseEntity.ok(fservice.AfficherLeNomDesFormations());
     }
 
-    @GetMapping("/info/{id}")
+    @GetMapping("/{id}/informations")
     @Operation(summary = "Méthode permettant de recupérer les informations de la formation et ses sessions .")
     public ResponseEntity<List<Map<String,Object>>> AfficherInfoSessionEtFormation(@PathVariable("id") long id){
         return ResponseEntity.ok(fservice.AfficherInfoSessionEtFormation(id));
     }
 
-    @GetMapping("/sessionsformation/{id}")
+    @GetMapping("/{id}/sessionsformation")
     @Operation(summary = "Méthode permettant d'afficher les sessions de la formation.")
     public ResponseEntity<List<Map<String,Object>>> AfficherLesSessionsDeLaFormation(@PathVariable("id") long id){
         return ResponseEntity.ok(fservice.AfficherLesSessionsDeLaFormation(id));
     }
+
+    /*
+    Forme d'un POST JSON http://localhost:8080/api/formations
+    {
+        "nomFormation": "Toto0",
+
+        "descriptionFormation": "totototototo0"
+    }
+    */
 }
