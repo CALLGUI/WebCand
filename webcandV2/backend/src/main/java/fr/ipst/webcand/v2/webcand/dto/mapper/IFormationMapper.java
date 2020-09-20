@@ -1,4 +1,4 @@
-package fr.ipst.webcand.v2.webcand.mapper;
+package fr.ipst.webcand.v2.webcand.dto.mapper;
 
 import fr.ipst.webcand.v2.webcand.dto.FormationDto;
 import fr.ipst.webcand.v2.webcand.entities.FormationEntity;

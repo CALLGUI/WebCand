@@ -2,11 +2,12 @@ package fr.ipst.webcand.v2.webcand.controller;
 
 import fr.ipst.webcand.v2.webcand.dto.SessionFormationDto;
 import fr.ipst.webcand.v2.webcand.entities.SessionFormationEntity;
-import fr.ipst.webcand.v2.webcand.mapper.ISessionFormationMapper;
-import fr.ipst.webcand.v2.webcand.services.SessionFormationService;
+import fr.ipst.webcand.v2.webcand.dto.mapper.ISessionFormationMapper;
+import fr.ipst.webcand.v2.webcand.services.interfaces.ISessionFormationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +19,9 @@ import java.util.List;
 @Tag(name = "Gestion des sessions de formation")
 public class SessionFormationController {
 
+    @Qualifier("ISessionFormationService")
     @Autowired
-    private SessionFormationService sfservice;
+    private ISessionFormationService sfservice;
 
     @Autowired
     private ISessionFormationMapper sfmapper;
@@ -42,34 +44,37 @@ public class SessionFormationController {
     @GetMapping("/{id}")
     @Operation(summary = "Méthode permettant de récupérer une session de formation")
     public ResponseEntity<SessionFormationDto> getSessionFormationById(@PathVariable("id") final Long sessionFormationId) {
-        final SessionFormationEntity sfEntity = this.sfservice.findById(sessionFormationId);
 
+        final SessionFormationEntity sfEntity = this.sfservice.findById(sessionFormationId);
         return new ResponseEntity<>(sfmapper.entiteVersDto(sfEntity), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Méthode permettant de mettre à jour une session de formation")
     public ResponseEntity<SessionFormationDto> updateSessionFormation(@RequestBody final SessionFormationDto sessionFormationDto) {
-        final SessionFormationEntity saved = this.sfservice.update(sfmapper.dtoVersEntite(sessionFormationDto));
 
+        final SessionFormationEntity saved = this.sfservice.update(sfmapper.dtoVersEntite(sessionFormationDto));
         return new ResponseEntity<>(sfmapper.entiteVersDto(saved), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Méthode permettant de supprimer une session de formation")
     public void deleteSessionFormation(@PathVariable("id") final Long sessionFormationId) {
+
         this.sfservice.deleteById(sessionFormationId);
     }
 
     @GetMapping("/datedebut/{datedebut}")
     @Operation(summary = "Méthode permettant de trouver les sessions de formation grace a une date debut")
     public ResponseEntity<List<SessionFormationDto>> findByDateDebutSession(@PathVariable("datedebut")final String dateDebut){
+
         return ResponseEntity.ok(sfmapper.listeEntiteVersListeDto(sfservice.findByDateDebutSession(dateDebut)));
     }
 
     @GetMapping("/datefin/{datefin}")
     @Operation(summary = "Méthode permettant de trouver les sessions de formation grace a une date fin")
     public ResponseEntity<List<SessionFormationDto>> findByDateFinSession(@PathVariable("datefin")final String dateFin){
+
         return ResponseEntity.ok(sfmapper.listeEntiteVersListeDto(sfservice.findByDateFinSession(dateFin)));
     }
 
