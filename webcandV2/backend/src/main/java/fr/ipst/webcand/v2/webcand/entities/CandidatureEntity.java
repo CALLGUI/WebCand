@@ -37,7 +37,7 @@ public class CandidatureEntity {
                         /* Table d'associations et relations */
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(referencedColumnName ="id_candidat" ,name = "id_candidat", nullable=false)
-    @JsonIgnoreProperties
+    @JsonIgnore
     private CandidatEntity candidat;
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)

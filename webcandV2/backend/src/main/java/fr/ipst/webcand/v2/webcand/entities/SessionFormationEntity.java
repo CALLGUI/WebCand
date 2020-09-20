@@ -29,16 +29,15 @@ public class SessionFormationEntity {
 
 
                             /* Table d'associations et relations */
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE})
     @JoinColumn(referencedColumnName ="id_formation",name = "id_formation", nullable=false )
-    @JsonIgnoreProperties
+    @JsonIgnore
     private FormationEntity formation;
 
     @OneToMany(cascade= CascadeType.ALL)
     @JoinTable( name = "candidature_session_associations",
             joinColumns = @JoinColumn( name = "id_session_formation" ),
             inverseJoinColumns = @JoinColumn( name = "id_candidature"))
-    @JsonIgnoreProperties("sesssionFormation")
     private Set<CandidatureEntity> candidatures = new HashSet<>();
 
 
