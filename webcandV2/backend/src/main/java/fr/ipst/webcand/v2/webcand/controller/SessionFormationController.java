@@ -19,7 +19,7 @@ import java.util.List;
 @Tag(name = "Gestion des sessions de formation")
 public class SessionFormationController {
 
-    @Qualifier("ISessionFormationService")
+
     @Autowired
     private ISessionFormationService sfservice;
 

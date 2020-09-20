@@ -19,7 +19,6 @@ import java.util.List;
 @Tag(name = "Gestion des actions de recherche")
 public class ActionRechercheController {
 
-    @Qualifier("IActionRechercheService")
     @Autowired
     private IActionRechercheService arservice;
 

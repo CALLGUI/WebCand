@@ -19,7 +19,7 @@ import java.util.List;
 @Tag(name = "Gestion des Candidatures")
 public class CandidatureController {
 
-    @Qualifier("ICandidatureService")
+
     @Autowired
     private ICandidatureService cuservice;
 

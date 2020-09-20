@@ -27,7 +27,6 @@ import java.util.Map;
 @Tag(name = "Gestion des candidats")
 public class CandidatController {
 
-    @Qualifier("ICandidatService")
     @Autowired
     private ICandidatService cservice;
 

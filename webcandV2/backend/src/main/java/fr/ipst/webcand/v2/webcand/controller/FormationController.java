@@ -20,7 +20,7 @@ import java.util.Map;
 @Tag(name = "Gestion des formations")
 public class FormationController {
 
-    @Qualifier("IFormationService")
+
     @Autowired
     private IFormationService fservice;
 

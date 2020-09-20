@@ -19,7 +19,6 @@ import java.net.URI;
 @Tag(name = "Gestion des sessions de formation")
 public class SessionFormationEtFormationUCController {
 
-    @Qualifier("ISessionFormationEtFormationUCService")
     @Autowired
     private ISessionFormationEtFormationUCService fservice;
 

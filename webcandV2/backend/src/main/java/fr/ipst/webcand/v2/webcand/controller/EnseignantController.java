@@ -19,7 +19,7 @@ import java.util.List;
 @Tag(name = "Gestion des enseignants")
 public class EnseignantController {
 
-    @Qualifier("IEnseignantService")
+
     @Autowired
     private IEnseignantService eservice;
 

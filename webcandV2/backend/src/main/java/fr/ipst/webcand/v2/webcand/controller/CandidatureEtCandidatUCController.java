@@ -19,7 +19,7 @@ import java.net.URI;
 @Tag(name = "Gestion des Candidatures")
 public class CandidatureEtCandidatUCController {
 
-    @Qualifier("ICandidatureEtCandidatUCService")
+
     @Autowired
     private ICandidatureEtCandidatUCService cureservice;
 
