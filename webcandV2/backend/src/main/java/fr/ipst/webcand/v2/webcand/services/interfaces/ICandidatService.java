@@ -4,7 +4,6 @@ import fr.ipst.webcand.v2.webcand.entities.CandidatEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public interface ICandidatService {
@@ -13,5 +12,4 @@ public interface ICandidatService {
     CandidatEntity save(CandidatEntity CandidatEntity);
     CandidatEntity update(CandidatEntity CandidatEntity);
     void deleteById(Long id);
-    List<Map<String,Object>> AfficherLesCandidaturesDuCandidat(Long id);
 }

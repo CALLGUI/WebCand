@@ -40,7 +40,6 @@ public class FormationController {
     public ResponseEntity<FormationDto> createFormation(@RequestBody final FormationDto formationDto) {
 
         final FormationEntity saved = fservice.save(fmapper.dtoVersEntite(formationDto));
-
         return new ResponseEntity<>(fmapper.entiteVersDto(saved), HttpStatus.CREATED);
     }
 
@@ -78,16 +77,9 @@ public class FormationController {
 
     @GetMapping("/{id}/informations")
     @Operation(summary = "Méthode permettant de recupérer les informations de la formation et ses sessions .")
-    public ResponseEntity<List<Map<String,Object>>> AfficherInfoSessionEtFormation(@PathVariable("id") long id){
+    public ResponseEntity<List<Map<String,Object>>> AfficherInfoSessionEtFormation(@PathVariable("id") final Long id){
 
         return ResponseEntity.ok(fservice.AfficherInfoSessionEtFormation(id));
-    }
-
-    @GetMapping("/{id}/sessionsformation")
-    @Operation(summary = "Méthode permettant d'afficher les sessions de la formation.")
-    public ResponseEntity<List<Map<String,Object>>> AfficherLesSessionsDeLaFormation(@PathVariable("id") long id){
-
-        return ResponseEntity.ok(fservice.AfficherLesSessionsDeLaFormation(id));
     }
 
     /*

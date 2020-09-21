@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Map;
+
 @Transactional
 @Service
 public class SessionFormationEtFormationUCService implements ISessionFormationEtFormationUCService {
@@ -19,6 +22,10 @@ public class SessionFormationEtFormationUCService implements ISessionFormationEt
 
     @Autowired
     private ISessionFormationRepository sessionRepository;
+
+    public List<Map<String,Object>> AfficherLesSessionsDeLaFormation(Long id){
+        return formationRepository.AfficherLesSessionsDeLaFormation(id);
+    }
 
     public SessionFormationEntity addSession(Long idFormation, SessionFormationEntity session) {
         FormationEntity formation = formationRepository.findById(idFormation).

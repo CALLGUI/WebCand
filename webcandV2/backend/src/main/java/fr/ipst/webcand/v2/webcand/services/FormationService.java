@@ -46,11 +46,8 @@ public class FormationService implements IFormationService {
         return formationRepository.AfficherLeNomDesFormations();
     }
 
-    public List<Map<String,Object>> AfficherInfoSessionEtFormation(long id){
+    public List<Map<String,Object>> AfficherInfoSessionEtFormation(Long id){
         return formationRepository.AfficherInfoSessionEtFormation(id);
     }
 
-    public List<Map<String,Object>> AfficherLesSessionsDeLaFormation(long id){
-        return formationRepository.AfficherLesSessionsDeLaFormation(id);
-    }
 }

@@ -15,7 +15,5 @@ public interface IFormationService {
     void deleteById(Long id);
 
     List<Map<String,Object>> AfficherLeNomDesFormations();
-    List<Map<String,Object>> AfficherInfoSessionEtFormation(long id);
-    List<Map<String,Object>> AfficherLesSessionsDeLaFormation(long id);
-
+    List<Map<String,Object>> AfficherInfoSessionEtFormation(Long id);
 }

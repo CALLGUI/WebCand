@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Map;
+
 
 @Transactional
 @Service
@@ -20,6 +23,29 @@ public class CandidatureEtCandidatUCService implements ICandidatureEtCandidatUCS
 
     @Autowired
     private ICandidatureRepository candidatureRepository;
+
+    public List<Map<String,Object>> AfficherLesCandidaturesDuCandidat(Long idCandidature){
+        return candidatRepository.AfficherLesCandidaturesDuCandidat(idCandidature);
+    }
+
+    @Override
+    public CandidatureEntity AfficherLaCandidatureDuCandidat(Long idCandidat, Long idCandidature) {
+        CandidatEntity candidat = candidatRepository.findById(idCandidat).
+                orElseThrow(()->new RessourceNotFoundException("candidat","id","idCandidat"));
+
+        if(candidat == null){return null;}
+
+        CandidatureEntity candidature = candidatureRepository.findById(idCandidature).
+                orElseThrow(()->new RessourceNotFoundException("candidat","id","idCandidat"));
+
+        if(candidature == null){return null;}
+
+        if (candidature.getCandidat().getIdCandidat() != idCandidat ) {
+            return null;
+        }
+
+        return candidature;
+    }
 
     public CandidatureEntity addCandidature(Long idCandidat, CandidatureEntity candidature){
         CandidatEntity candidat = candidatRepository.findById(idCandidat).
@@ -44,5 +70,10 @@ public class CandidatureEtCandidatUCService implements ICandidatureEtCandidatUCS
         CandidatureEntity candidature = candidatureRepository.findById(idCandidature).
                 orElseThrow(()->new RessourceNotFoundException("candidature","id","idCandidature"));
         candidat.getCandidatures().remove(candidature);
+    }
+
+    @Override
+    public CandidatureEntity findById(Long id) {
+        return candidatureRepository.getOne(id);
     }
 }
