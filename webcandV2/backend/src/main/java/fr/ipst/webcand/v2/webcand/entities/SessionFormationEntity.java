@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -38,7 +39,7 @@ public class SessionFormationEntity {
     @JoinTable( name = "candidature_session_associations",
             joinColumns = @JoinColumn( name = "id_session_formation" ),
             inverseJoinColumns = @JoinColumn( name = "id_candidature"))
-    private Set<CandidatureEntity> candidatures = new HashSet<>();
+    private List<CandidatureEntity> candidatures;
 
 
 }

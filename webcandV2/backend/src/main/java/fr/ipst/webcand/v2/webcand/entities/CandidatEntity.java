@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -48,7 +49,7 @@ public class CandidatEntity {
 
                         /* Table d'associations et relations */
     @OneToMany(mappedBy = "candidat", cascade= CascadeType.ALL, orphanRemoval = true)
-    private Set<CandidatureEntity> candidatures = new HashSet<>();
+    private List<CandidatureEntity> candidatures;
 
     /*
     public void addCandidature (CandidatureEntity ccand){

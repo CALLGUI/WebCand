@@ -4,7 +4,7 @@ import fr.ipst.webcand.v2.webcand.entities.EnseignantEntity;
 import fr.ipst.webcand.v2.webcand.entities.FormationEntity;
 import lombok.Data;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
 public class EnseignantDto {
@@ -23,5 +23,5 @@ public class EnseignantDto {
 
     private EnseignantEntity.Statut statut;
 
-    private Set<FormationEntity> formations;
+    private List<FormationEntity> formations;
 }

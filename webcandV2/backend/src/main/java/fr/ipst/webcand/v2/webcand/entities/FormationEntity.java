@@ -8,6 +8,7 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -32,8 +33,8 @@ public class FormationEntity {
 
                             /* Table d'associations et relations */
     @OneToMany(mappedBy = "formation", cascade =  CascadeType.ALL, orphanRemoval=true)
-    private Set<SessionFormationEntity> sessions = new HashSet<>();
+    private List<SessionFormationEntity> sessions;
 
     @ManyToMany(mappedBy = "formations", cascade = CascadeType.ALL)
-    private Set<EnseignantEntity> enseignants = new HashSet<>();
+    private List<EnseignantEntity> enseignants ;
 }

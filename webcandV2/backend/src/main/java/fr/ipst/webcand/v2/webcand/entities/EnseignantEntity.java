@@ -11,6 +11,7 @@ import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -50,6 +51,6 @@ public class EnseignantEntity {
             joinColumns = @JoinColumn(name = "id_Enseignant"),
             inverseJoinColumns = @JoinColumn(name = "id_Formation"))
     @JsonIgnoreProperties("enseignants")
-    private Set<FormationEntity> formations = new HashSet<>();
+    private List<FormationEntity> formations ;
 
 }
