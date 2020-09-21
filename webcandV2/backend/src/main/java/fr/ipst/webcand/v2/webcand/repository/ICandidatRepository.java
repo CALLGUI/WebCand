@@ -10,7 +10,6 @@ import java.util.Map;
 
 @Repository
 public interface ICandidatRepository extends JpaRepository<CandidatEntity, Long> {
-    //, DataTablesRepository<CandidatEntity, Long> {
 
     @Query(value = "SELECT * FROM candidatures where id_candidat = :id " , nativeQuery = true)
     List<Map<String,Object>> AfficherLesCandidaturesDuCandidat(long id);

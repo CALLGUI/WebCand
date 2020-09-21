@@ -7,7 +7,6 @@ import fr.ipst.webcand.v2.webcand.services.interfaces.ICandidatureEtCandidatUCSe
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -26,13 +25,12 @@ public class CandidatureEtCandidatUCController {
     @Autowired
     private ICandidatureMapper cumapper;
 
-    /* creation d'une candidature d'un candidat */
     @PostMapping("/{id}/candidatures")
     @Operation(summary = "Méthode permettant de crée une candidature")
     public ResponseEntity<Void> createCandidature(
-            @PathVariable("id") Long id, @RequestBody CandidatureDto candidatureDto) {
+            @PathVariable("id") Long idCandidat, @RequestBody CandidatureDto candidatureDto) {
 
-        CandidatureEntity candidature = cureservice.addCandidature(id,cumapper.dtoVersEntite(candidatureDto));
+        CandidatureEntity candidature = cureservice.addCandidature(idCandidat,cumapper.dtoVersEntite(candidatureDto));
 
         if(candidature == null){
             return ResponseEntity.noContent().build();
