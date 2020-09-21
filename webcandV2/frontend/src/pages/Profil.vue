@@ -5,7 +5,7 @@
     </div>
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-primary mb-5">
-        <a>{{ "Bienvenue, " + name }}</a>
+<!--        <a>{{"Bienvenue " + enseignant.nomEnseignant}}</a>-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -35,8 +35,26 @@
 </template>
 
 <script>
+import EnseignantsDataService from "@/services/EnseignantsDataService";
+
 export default {
-  name: "Profil"
+  name: "Profil",
+  data() {
+    return {
+      enseignants: []
+    };
+  },
+  methods: {
+    findEnseignant(id) {
+      EnseignantsDataService.retrieveUnEnseignant(id)
+          .then(response => {
+            this.enseignants = response.data;
+          });
+    },
+  },
+  created() {
+    this.findEnseignant();
+  }
 }
 </script>
 

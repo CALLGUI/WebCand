@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
-    <h3>All Formations</h3>
+  <div class="container text-center">
+    <h1 class="display-4 text-center">Liste des Formations</h1>
     <div class="container">
       <table class="table">
         <thead>
         <tr>
-          <th>Id</th>
+          <th>Nom</th>
           <th>Description</th>
         </tr>
         </thead>
@@ -13,6 +13,12 @@
         <tr v-for="formation in formations" v-bind:key="formation.nomFormation">
           <td><a v-bind:href="'/api/Formations/'+formation.idFormation">{{ formation.nomFormation }}</a></td>
           <td>{{ formation.descriptionFormation }}</td>
+          <td>
+            <b-button>Modifier</b-button>
+          </td>
+          <td>
+            <b-button v-on:click="deleteFormation(formation.idFormation)">Supprimer</b-button>
+          </td>
         </tr>
         </tbody>
       </table>
@@ -35,12 +41,19 @@ export default {
           .then(response => {
             this.formations = response.data;
           });
-    }
+    },
+    deleteFormation(id) {
+      FormationsDataService.deleteUneFormation(id)
+      this.refreshFormations();
+    },
   },
   created() {
     this.refreshFormations();
+    this.deleteFormation();
   }
 }
+
+
 </script>
 
 <style scoped>

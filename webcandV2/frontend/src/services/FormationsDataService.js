@@ -8,8 +8,13 @@ class FormationsDataService {
     retrieveAllFormations() {
         return axios.get(`${FORMATIONS_API_URL}`);
     }
-    retrieveUneFormations( id ) {
+
+    retrieveUneFormations(id) {
         return axios.get(`${FORMATIONS_API_URL}/${id}`);
+    }
+
+    deleteUneFormation(id) {
+        return axios.delete(`${FORMATIONS_API_URL}/${id}`);
     }
 }
 

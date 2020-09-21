@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="text-center">
     <div id="clouds">
       <div class="cloud x1"></div>
       <div class="cloud x1_5"></div>
@@ -11,9 +11,14 @@
     <div class='c'>
       <div class='_404'>404</div>
       <hr>
-      <div class='_1'>THE PAGE</div>
-      <div class='_2'>WAS NOT FOUND</div>
-      <a class='btn' href='/'>BACK TO MARS</a>
+      <div class='_1'>LA PAGE</div>
+      <div class='_2'>N'A PAS ETE TROUVEE</div>
+      <br>
+      <a href='/'>ACCUEIL</a>
+      <br>
+      <br>
+      <br>
+      <a href='/Profil/1'>ACCEDER AU PROFIL EN AJOUTANT UN ID : /Profil/1</a>
     </div>
   </div>
 </template>

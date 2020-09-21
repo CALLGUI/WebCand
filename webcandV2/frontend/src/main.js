@@ -58,7 +58,7 @@ const routes = [
             {path: "/api/Formations/:id", component: FormationsApp},
 
             {
-                path: "Profil", component: Profil,
+                path: "Profil/:id", component: Profil,
                 children: [
                     {path: "GestionProfil", component: GestionProfil},
                 ]
