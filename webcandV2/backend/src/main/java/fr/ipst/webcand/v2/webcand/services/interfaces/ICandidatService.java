@@ -1,11 +1,10 @@
 package fr.ipst.webcand.v2.webcand.services.interfaces;
 
 import fr.ipst.webcand.v2.webcand.entities.CandidatEntity;
-import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
-import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public interface ICandidatService {
@@ -14,5 +13,5 @@ public interface ICandidatService {
     CandidatEntity save(CandidatEntity CandidatEntity);
     CandidatEntity update(CandidatEntity CandidatEntity);
     void deleteById(Long id);
-    //DataTablesOutput<CandidatEntity> findAll(DataTablesInput input);
+    List<Map<String,Object>> AfficherLesCandidaturesDuCandidat(Long id);
 }

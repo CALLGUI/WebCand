@@ -1,13 +1,13 @@
 package fr.ipst.webcand.v2.webcand.controller;
 
-
 import fr.ipst.webcand.v2.webcand.dto.FormationDto;
 import fr.ipst.webcand.v2.webcand.entities.FormationEntity;
-import fr.ipst.webcand.v2.webcand.mapper.IFormationMapper;
-import fr.ipst.webcand.v2.webcand.services.FormationService;
+import fr.ipst.webcand.v2.webcand.dto.mapper.IFormationMapper;
+import fr.ipst.webcand.v2.webcand.services.interfaces.IFormationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +20,9 @@ import java.util.Map;
 @Tag(name = "Gestion des formations")
 public class FormationController {
 
+
     @Autowired
-    private FormationService fservice;
+    private IFormationService fservice;
 
     @Autowired
     private IFormationMapper fmapper;
@@ -58,34 +59,35 @@ public class FormationController {
     public ResponseEntity<FormationDto> updateFormation(@RequestBody final FormationDto formationDto) {
 
         final FormationEntity saved = this.fservice.update(fmapper.dtoVersEntite(formationDto));
-
         return new ResponseEntity<>(fmapper.entiteVersDto(saved), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Méthode permettant de supprimer un formation.")
     public void deleteFormation(@PathVariable("id") final Long formationId) {
-        //public ResponseEntity<?> deleteCandidat(@PathVariable("id") final Long formationId) {
+
         this.fservice.deleteById(formationId);
-        //return ResponseEntity.ok().build();
     }
 
     /* Affichage information specifique avec des requetes SQL natives >repo< */
     @GetMapping("/noms")
     @Operation(summary = "Méthode permettant d'afficher les noms de formation.")
     public ResponseEntity<List<Map<String,Object>>> AfficherLeNomDesFormations(){
+
         return ResponseEntity.ok(fservice.AfficherLeNomDesFormations());
     }
 
     @GetMapping("/{id}/informations")
     @Operation(summary = "Méthode permettant de recupérer les informations de la formation et ses sessions .")
     public ResponseEntity<List<Map<String,Object>>> AfficherInfoSessionEtFormation(@PathVariable("id") long id){
+
         return ResponseEntity.ok(fservice.AfficherInfoSessionEtFormation(id));
     }
 
     @GetMapping("/{id}/sessionsformation")
     @Operation(summary = "Méthode permettant d'afficher les sessions de la formation.")
     public ResponseEntity<List<Map<String,Object>>> AfficherLesSessionsDeLaFormation(@PathVariable("id") long id){
+
         return ResponseEntity.ok(fservice.AfficherLesSessionsDeLaFormation(id));
     }
 

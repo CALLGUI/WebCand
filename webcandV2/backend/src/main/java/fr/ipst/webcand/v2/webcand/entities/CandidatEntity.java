@@ -6,14 +6,15 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "candidats")
 @Data
-@EqualsAndHashCode(exclude = {"cCandidatures"})
+@EqualsAndHashCode(exclude = {"candidatures"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
-        , property = "idCandidat", scope = Long.class)
+        , property = "idCandidat", scope = CandidatEntity.class)
 public class CandidatEntity {
 
     @Id
@@ -47,8 +48,8 @@ public class CandidatEntity {
 
 
                         /* Table d'associations et relations */
-    @OneToMany(mappedBy = "cCandidat", cascade= CascadeType.ALL, orphanRemoval = true)
-    private Set<CandidatureEntity> cCandidatures = new HashSet<>();
+    @OneToMany(mappedBy = "candidat", cascade= CascadeType.ALL, orphanRemoval = true)
+    private List<CandidatureEntity> candidatures;
 
     /*
     public void addCandidature (CandidatureEntity ccand){

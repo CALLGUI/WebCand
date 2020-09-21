@@ -8,14 +8,15 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name ="formations")
 @Data
-@EqualsAndHashCode(exclude = {"enseignants","sSessionFormationEntity"})
+@EqualsAndHashCode(exclude = {"enseignants","sessions"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
-        , property = "idFormation", scope = Long.class)
+        , property = "idFormation", scope = FormationEntity.class)
 public class FormationEntity {
 
     @Id
@@ -31,11 +32,9 @@ public class FormationEntity {
 
 
                             /* Table d'associations et relations */
-    @OneToMany(mappedBy = "formationEntity", cascade =  CascadeType.ALL, orphanRemoval=true)
-    @JsonIgnoreProperties
-    private Set<SessionFormationEntity> sSessionFormation= new HashSet<>();
+    @OneToMany(mappedBy = "formation", cascade =  CascadeType.ALL, orphanRemoval=true)
+    private List<SessionFormationEntity> sessions;
 
     @ManyToMany(mappedBy = "formations", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("formations")
-    private Set<EnseignantEntity> enseignants = new HashSet<>();
+    private List<EnseignantEntity> enseignants ;
 }

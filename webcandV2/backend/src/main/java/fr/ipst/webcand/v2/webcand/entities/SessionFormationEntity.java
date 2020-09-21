@@ -6,14 +6,15 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "sessions_formation")
 @Data
-@EqualsAndHashCode(exclude = {"sessionCandidatures","formationEntity"})
+@EqualsAndHashCode(exclude = {"candidatures","formation"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
-        , property = "idSessionFormation", scope = Long.class)
+        , property = "idSessionFormation", scope = SessionFormationEntity.class)
 public class SessionFormationEntity {
 
     @Id
@@ -29,17 +30,16 @@ public class SessionFormationEntity {
 
 
                             /* Table d'associations et relations */
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_formation", nullable=false )
-    @JsonIgnoreProperties
-    private FormationEntity formationEntity;
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE},fetch = FetchType.LAZY)
+    @JoinColumn(referencedColumnName ="id_formation",name = "id_formation", nullable=false )
+    @JsonIgnore
+    private FormationEntity formation;
 
-    @OneToMany(cascade= CascadeType.ALL)
+    @OneToMany(cascade =  CascadeType.ALL, orphanRemoval=true)
     @JoinTable( name = "candidature_session_associations",
             joinColumns = @JoinColumn( name = "id_session_formation" ),
             inverseJoinColumns = @JoinColumn( name = "id_candidature"))
-    @JsonIgnoreProperties("cSessionFormation")
-    private Set<CandidatureEntity> sessionCandidatures = new HashSet<>();
+    private List<CandidatureEntity> candidatures;
 
 
 }

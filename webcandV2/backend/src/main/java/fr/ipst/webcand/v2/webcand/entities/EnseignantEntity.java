@@ -11,6 +11,7 @@ import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,8 +19,7 @@ import java.util.Set;
 @Data
 @EqualsAndHashCode(exclude = {"formations"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
-        , property = "idEnseignant", scope = Long.class)
-@SQLDelete(sql = "DELETE FROM enseignants WHERE id_enseignant = ?")
+        , property = "idEnseignant", scope = EnseignantEntity.class)
 public class EnseignantEntity {
 
     public enum Statut {
@@ -51,6 +51,6 @@ public class EnseignantEntity {
             joinColumns = @JoinColumn(name = "id_Enseignant"),
             inverseJoinColumns = @JoinColumn(name = "id_Formation"))
     @JsonIgnoreProperties("enseignants")
-    private Set<FormationEntity> formations = new HashSet<>();
+    private List<FormationEntity> formations ;
 
 }

@@ -2,8 +2,8 @@ package fr.ipst.webcand.v2.webcand.controller;
 
 import fr.ipst.webcand.v2.webcand.dto.SessionFormationDto;
 import fr.ipst.webcand.v2.webcand.entities.SessionFormationEntity;
-import fr.ipst.webcand.v2.webcand.mapper.ISessionFormationMapper;
-import fr.ipst.webcand.v2.webcand.services.SessionFormationUCService;
+import fr.ipst.webcand.v2.webcand.dto.mapper.ISessionFormationMapper;
+import fr.ipst.webcand.v2.webcand.services.interfaces.ISessionFormationEtFormationUCService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +16,10 @@ import java.net.URI;
 @RestController
 @RequestMapping("/api/formations")
 @Tag(name = "Gestion des sessions de formation")
-public class SessionFormationUCController {
+public class SessionFormationEtFormationUCController {
 
     @Autowired
-    private SessionFormationUCService fservice;
+    private ISessionFormationEtFormationUCService fservice;
 
     @Autowired
     private ISessionFormationMapper imapper;

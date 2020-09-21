@@ -2,11 +2,12 @@ package fr.ipst.webcand.v2.webcand.controller;
 
 import fr.ipst.webcand.v2.webcand.dto.EnseignantDto;
 import fr.ipst.webcand.v2.webcand.entities.EnseignantEntity;
-import fr.ipst.webcand.v2.webcand.mapper.IEnseignantMapper;
-import fr.ipst.webcand.v2.webcand.services.EnseignantService;
+import fr.ipst.webcand.v2.webcand.dto.mapper.IEnseignantMapper;
+import fr.ipst.webcand.v2.webcand.services.interfaces.IEnseignantService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +19,9 @@ import java.util.List;
 @Tag(name = "Gestion des enseignants")
 public class EnseignantController {
 
+
     @Autowired
-    private EnseignantService eservice;
+    private IEnseignantService eservice;
 
     @Autowired
     private IEnseignantMapper emapper;
@@ -38,7 +40,6 @@ public class EnseignantController {
     public ResponseEntity<EnseignantDto> createEnseignant(@RequestBody final EnseignantDto enseignantDto) {
 
         final EnseignantEntity saved = eservice.save(emapper.dtoVersEntite(enseignantDto));
-
         return new ResponseEntity<>(emapper.entiteVersDto(saved), HttpStatus.CREATED);
     }
 
@@ -48,7 +49,6 @@ public class EnseignantController {
     public ResponseEntity<EnseignantDto> getEnseignantById(@PathVariable("id") final Long formationId) {
 
         final EnseignantEntity cEntity = this.eservice.findById(formationId);
-        //.orElseThrow(() -> new RessourceNotFoundException("candidat", "id", formationId));
         return new ResponseEntity<>(emapper.entiteVersDto(cEntity), HttpStatus.OK);
     }
 
@@ -57,13 +57,13 @@ public class EnseignantController {
     public ResponseEntity<EnseignantDto> updateEnseignant(@RequestBody final EnseignantDto enseignantDto) {
 
         final EnseignantEntity saved = this.eservice.update(emapper.dtoVersEntite(enseignantDto));
-
         return new ResponseEntity<>(emapper.entiteVersDto(saved), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Méthode permettant de supprimer un enseignant.")
     public void deleteEnseignant(@PathVariable("id") final Long enseignantID) {
+
         this.eservice.deleteById(enseignantID);
     }
 }

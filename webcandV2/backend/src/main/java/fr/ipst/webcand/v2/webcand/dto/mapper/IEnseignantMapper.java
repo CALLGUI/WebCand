@@ -1,4 +1,4 @@
-package fr.ipst.webcand.v2.webcand.mapper;
+package fr.ipst.webcand.v2.webcand.dto.mapper;
 
 import fr.ipst.webcand.v2.webcand.dto.EnseignantDto;
 import fr.ipst.webcand.v2.webcand.entities.EnseignantEntity;

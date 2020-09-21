@@ -3,7 +3,7 @@ package fr.ipst.webcand.v2.webcand.dto;
 import fr.ipst.webcand.v2.webcand.entities.CandidatureEntity;
 import lombok.Data;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
 public class CandidatDto {
@@ -26,5 +26,5 @@ public class CandidatDto {
 
     private String telephoneCandidat;
 
-    private Set<CandidatureEntity> cCandidatures;
+    private List<CandidatureEntity> candidatures;
 }

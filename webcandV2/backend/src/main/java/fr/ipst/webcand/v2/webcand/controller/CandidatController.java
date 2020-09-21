@@ -2,11 +2,12 @@ package fr.ipst.webcand.v2.webcand.controller;
 
 import fr.ipst.webcand.v2.webcand.dto.CandidatDto;
 import fr.ipst.webcand.v2.webcand.entities.CandidatEntity;
-import fr.ipst.webcand.v2.webcand.mapper.ICandidatMapper;
-import fr.ipst.webcand.v2.webcand.services.CandidatService;
+import fr.ipst.webcand.v2.webcand.dto.mapper.ICandidatMapper;
+import fr.ipst.webcand.v2.webcand.services.interfaces.ICandidatService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,7 +28,7 @@ import java.util.Map;
 public class CandidatController {
 
     @Autowired
-    private CandidatService cservice;
+    private ICandidatService cservice;
 
     @Autowired
     private ICandidatMapper cmapper;
@@ -45,7 +46,6 @@ public class CandidatController {
     public ResponseEntity<CandidatDto> createCandidat(@RequestBody final CandidatDto candidatDto) {
 
         final CandidatEntity saved = cservice.save(cmapper.dtoVersEntite(candidatDto));
-
         return new ResponseEntity<>(cmapper.entiteVersDto(saved), HttpStatus.CREATED);
     }
 
@@ -54,7 +54,6 @@ public class CandidatController {
     public ResponseEntity<CandidatDto> getCandidatById(@PathVariable("id") final Long candidatId) {
 
         final CandidatEntity cEntity = this.cservice.findById(candidatId);
-                //.orElseThrow(() -> new RessourceNotFoundException("candidat", "id", candidatId));
         return new ResponseEntity<>(cmapper.entiteVersDto(cEntity), HttpStatus.OK);
     }
 
@@ -63,21 +62,20 @@ public class CandidatController {
     public ResponseEntity<CandidatDto> updateCandidat(@RequestBody final CandidatDto candidatDto) {
 
         final CandidatEntity saved = this.cservice.update(cmapper.dtoVersEntite(candidatDto));
-
         return new ResponseEntity<>(cmapper.entiteVersDto(saved), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Méthode permettant de supprimer un candidat.")
     public void deleteCandidat(@PathVariable("id") final Long candidatId) {
-    //public ResponseEntity<?> deleteCandidat(@PathVariable("id") final Long candidatId) {
+
         this.cservice.deleteById(candidatId);
-        //return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}/candidatures")
     @Operation(summary = "Méthode permettant d'afficher les candidatures du candidat.")
     public ResponseEntity<List<Map<String,Object>>> AfficherLesSessionsDeLaFormation(@PathVariable("id") long id){
+
         return ResponseEntity.ok(cservice.AfficherLesCandidaturesDuCandidat(id));
     }
 

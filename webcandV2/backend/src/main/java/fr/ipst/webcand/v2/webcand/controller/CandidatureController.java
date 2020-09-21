@@ -2,11 +2,12 @@ package fr.ipst.webcand.v2.webcand.controller;
 
 import fr.ipst.webcand.v2.webcand.dto.CandidatureDto;
 import fr.ipst.webcand.v2.webcand.entities.CandidatureEntity;
-import fr.ipst.webcand.v2.webcand.mapper.ICandidatureMapper;
-import fr.ipst.webcand.v2.webcand.services.CandidatureService;
+import fr.ipst.webcand.v2.webcand.dto.mapper.ICandidatureMapper;
+import fr.ipst.webcand.v2.webcand.services.interfaces.ICandidatureService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +19,9 @@ import java.util.List;
 @Tag(name = "Gestion des Candidatures")
 public class CandidatureController {
 
+
     @Autowired
-    private CandidatureService cuservice;
+    private ICandidatureService cuservice;
 
     @Autowired
     private ICandidatureMapper cumapper;
@@ -57,6 +59,7 @@ public class CandidatureController {
     @DeleteMapping("/{id}")
     @Operation(summary = "Méthode permettant de supprimer une candidature")
     public void deleteCandidature(@PathVariable("id") final Long candidatureId) {
+
         this.cuservice.deleteById(candidatureId);
     }
 

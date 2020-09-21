@@ -14,4 +14,6 @@ public interface ISessionFormationService {
     SessionFormationEntity update(SessionFormationEntity sessionFormationEntity);
     void deleteById(Long id);
 
+    List<SessionFormationEntity> findByDateDebutSession(String dateDebut);
+    List<SessionFormationEntity> findByDateFinSession(String dateFin);
 }

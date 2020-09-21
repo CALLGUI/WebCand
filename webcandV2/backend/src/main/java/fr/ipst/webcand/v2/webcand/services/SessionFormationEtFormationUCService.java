@@ -5,13 +5,14 @@ import fr.ipst.webcand.v2.webcand.entities.SessionFormationEntity;
 import fr.ipst.webcand.v2.webcand.exception.RessourceNotFoundException;
 import fr.ipst.webcand.v2.webcand.repository.IFormationRepository;
 import fr.ipst.webcand.v2.webcand.repository.ISessionFormationRepository;
+import fr.ipst.webcand.v2.webcand.services.interfaces.ISessionFormationEtFormationUCService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Service
-public class SessionFormationUCService {
+public class SessionFormationEtFormationUCService implements ISessionFormationEtFormationUCService {
 
     @Autowired
     private IFormationRepository formationRepository;
@@ -27,7 +28,7 @@ public class SessionFormationUCService {
             return null;
         }
 
-        formation.getSSessionFormation().add(session);
+        formation.getSessions().add(session);
 
         return session;
     }
@@ -41,6 +42,6 @@ public class SessionFormationUCService {
         }
         SessionFormationEntity session = sessionRepository.findById(idSession).
                 orElseThrow(()->new RessourceNotFoundException("session","id","idSession"));
-        formation.getSSessionFormation().remove(session);
+        formation.getSessions().remove(session);
     }
 }

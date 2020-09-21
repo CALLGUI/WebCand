@@ -46,9 +46,4 @@ public class CandidatService implements ICandidatService {
         return candidatRepository.AfficherLesCandidaturesDuCandidat(id);
     }
 
-    /*@Override
-    public DataTablesOutput<CandidatEntity> findAll(DataTablesInput input) {
-        return candidatRepository.findAll(input);
-    }*/
-
 }
