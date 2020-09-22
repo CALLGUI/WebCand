@@ -1,6 +1,7 @@
 package fr.ipst.webcand.v2.webcand.dto;
 
 
+import fr.ipst.webcand.v2.webcand.entities.CandidatEntity;
 import lombok.Data;
 
 
@@ -15,7 +16,7 @@ public class ActionRechercheDto {
 
     private String mailContact;
 
-    private String telephoneContact;
+    private String telephonneContact;
 
     private String dateContact;
 
@@ -27,6 +28,6 @@ public class ActionRechercheDto {
 
     private String dateReponse;
 
-    /*private CandidatEntity candidatEntity;*/
+    private CandidatEntity candidat;
 
 }

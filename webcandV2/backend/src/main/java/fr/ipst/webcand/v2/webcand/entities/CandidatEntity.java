@@ -12,7 +12,7 @@ import java.util.Set;
 @Entity
 @Table(name = "candidats")
 @Data
-@EqualsAndHashCode(exclude = {"candidatures"})
+@EqualsAndHashCode(exclude = {"candidatures", "profils", "actionsRecherche"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
         , property = "idCandidat", scope = CandidatEntity.class)
 public class CandidatEntity {
@@ -61,4 +61,15 @@ public class CandidatEntity {
         cCandidatures.remove(ccand);
         ccand.setCCandidat(null);
     }*/
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable( name = "actionRecherche_candidat_associations",
+            joinColumns = @JoinColumn(name = "id_candidat"),
+            inverseJoinColumns = @JoinColumn(name = "id_action_recherche"))
+    @JsonIgnore
+    private List<ActionRechercheEntity> actionsRecherche;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "candidat", orphanRemoval = true)
+    @JsonIgnore
+    private List<ProfilEntity> profils;
 }

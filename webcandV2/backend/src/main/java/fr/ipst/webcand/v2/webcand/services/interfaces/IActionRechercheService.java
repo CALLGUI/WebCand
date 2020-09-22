@@ -4,6 +4,7 @@ import fr.ipst.webcand.v2.webcand.entities.ActionRechercheEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public interface IActionRechercheService {
@@ -12,4 +13,6 @@ public interface IActionRechercheService {
     ActionRechercheEntity save(ActionRechercheEntity actionRechercheEntity);
     ActionRechercheEntity update(ActionRechercheEntity actionRechercheEntity);
     void deleteById(Long id);
+    List<Map<String,Object>> AfficherListeEntreprisesContacte(long id);
+    List<Map<String, Object>> AfficherListeEntrepriseContacteDetails(long id);
 }

@@ -1,6 +1,8 @@
 package fr.ipst.webcand.v2.webcand.dto;
 
+import fr.ipst.webcand.v2.webcand.entities.ActionRechercheEntity;
 import fr.ipst.webcand.v2.webcand.entities.CandidatureEntity;
+import fr.ipst.webcand.v2.webcand.entities.ProfilEntity;
 import lombok.Data;
 
 import java.util.List;
@@ -27,4 +29,8 @@ public class CandidatDto {
     private String telephoneCandidat;
 
     private List<CandidatureEntity> candidatures;
+
+    private List<ActionRechercheEntity> actionsRecherche;
+
+    private List<ProfilEntity> profils;
 }

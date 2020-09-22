@@ -7,12 +7,12 @@ import fr.ipst.webcand.v2.webcand.services.interfaces.IActionRechercheService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/actionsrecherche")
@@ -63,5 +63,35 @@ public class ActionRechercheController {
 
         this.arservice.deleteById(actionRechercheId);
     }
+
+    @GetMapping("/actionRechercheCandidat/{id}")
+    @Operation(summary = "Méthode permettant de chercher les actions de recherche d'un candidat")
+    public ResponseEntity<List<Map<String, Object>>> AfficherListeEntreprisesContacte(@PathVariable("id") long id) {
+        return ResponseEntity.ok(arservice.AfficherListeEntreprisesContacte(id));
+    }
+
+    @GetMapping("/actionRechercheCandidatDetails/{id}")
+    @Operation(summary = "Méthode permettant de voir le détail des entreprises contacté par le candidat")
+    public ResponseEntity<List<Map<String, Object>>> AfficherListeEntrepriseContacteDetails(@PathVariable("id") long id) {
+        return ResponseEntity.ok(arservice.AfficherListeEntrepriseContacteDetails(id));
+    }
+
+/*          Forme d'un POST JSON http://localhost:8080/api/actionsrecherche
+{
+        "idActionRecherche": 666,
+            "nomEntreprise": "Grosoft",
+            "nomContact": "Yves Grumo",
+            "mailContact": "YvesG@gmail.com",
+            "telephoneContact": null,
+            "dateContact": "10/09/2020",
+            "typePostuler": "CDI",
+            "nomPoste": "Dev",
+            "reponseEntreprise": "Alors vous avez un profil très interressant mais en fait on va pas vous prendre, bisous",
+            "dateReponse": "11/09/2020",
+            "arCandidat": {
+        "idCandidat": 1
+    }
+    }*/
+
 
 }

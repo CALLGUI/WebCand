@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 @Transactional
 @Service
@@ -41,4 +42,13 @@ public class ActionRechercheService implements IActionRechercheService {
     public void deleteById(Long id) {
         actionRechercheRepository.deleteById(id);
     }
+
+    public List<Map<String,Object>> AfficherListeEntreprisesContacte(long id) {
+        return actionRechercheRepository.AfficherListeEntreprisesContacte(id);
+    }
+
+    public List<Map<String, Object>> AfficherListeEntrepriseContacteDetails(long id) {
+        return actionRechercheRepository.AfficherListeEntrepriseContacteDetails(id);
+    }
+
 }

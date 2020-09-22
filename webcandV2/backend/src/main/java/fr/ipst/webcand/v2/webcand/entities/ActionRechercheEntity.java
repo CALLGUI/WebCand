@@ -1,15 +1,20 @@
 package fr.ipst.webcand.v2.webcand.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
-import org.hibernate.annotations.SQLDelete;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "actions_recherche")
 @Data
-@SQLDelete(sql = "DELETE FROM actions_recherche WHERE id_action_recherche = ?")
+@EqualsAndHashCode(exclude = {"candidat"})
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
+        , property = "idActionRecherche", scope = ActionRechercheEntity.class)
 public class ActionRechercheEntity {
 
     @Id
@@ -44,8 +49,8 @@ public class ActionRechercheEntity {
     @Column(name = "date_reponse")
     private String dateReponse;
 
-/*    @ManyToOne
-    @JoinColumn(name = "id_candidat")
-    private CandidatEntity candidatEntity;*/
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("cActionRecherche")
+    private CandidatEntity candidat;
 
 }
