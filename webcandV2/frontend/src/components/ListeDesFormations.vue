@@ -1,6 +1,15 @@
 <template>
   <div class="container text-center">
-    <h1 class="display-4 text-center">Liste des Formations</h1>
+    <h1 class="display-4">Liste des Formations</h1>
+    <input type="text" class="form-control mb-2" placeholder="chercher par nom" v-model="nomFormation">
+    <div class="input-group-append">
+<!--      <button class="btn btn-outline-secondary" type="button"-->
+<!--              @click=""-->
+<!--      >-->
+<!--        Chercher-->
+<!--      </button>-->
+    </div>
+    <b-button class="float-right btn-success" href="FormationsAdd">Ajouter Formation</b-button>
     <div class="container">
       <table class="table">
         <thead>
@@ -14,15 +23,16 @@
           <td><a v-bind:href="'/api/Formations/'+formation.idFormation">{{ formation.nomFormation }}</a></td>
           <td>{{ formation.descriptionFormation }}</td>
           <td>
-            <b-button>Modifier</b-button>
+            <b-button class="btn-warning">Modifier</b-button>
           </td>
           <td>
-            <b-button v-on:click="deleteFormation(formation.idFormation)">Supprimer</b-button>
+            <b-button class="btn-danger" v-on:click="deleteFormation(formation.idFormation)">Supprimer</b-button>
           </td>
         </tr>
         </tbody>
       </table>
     </div>
+
   </div>
 </template>
 <script>
@@ -37,13 +47,13 @@ export default {
   },
   methods: {
     refreshFormations() {
-      FormationsDataService.retrieveAllFormations()
+      FormationsDataService.getAllFormation()
           .then(response => {
             this.formations = response.data;
           });
     },
     deleteFormation(id) {
-      FormationsDataService.deleteUneFormation(id)
+      FormationsDataService.deleteFormation(id)
       this.refreshFormations();
     },
   },
