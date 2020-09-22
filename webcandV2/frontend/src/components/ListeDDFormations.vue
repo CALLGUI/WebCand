@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     refreshFormations() {
-      FormationsDataService.retrieveAllFormations()
+      FormationsDataService.getAllFormation()
           .then(response => {
             this.formations = response.data;
           });

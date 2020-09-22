@@ -71,7 +71,7 @@ export default {
   methods: {
     refreshFormations() {
       let IdFormation = parseInt(this.$route.params.id);
-      FormationsDataService.retrieveUneFormations(IdFormation)
+      FormationsDataService.getFormation(IdFormation)
           .then(response => {
             this.formation = response.data;
           });

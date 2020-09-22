@@ -1,20 +1,35 @@
-import axios from "axios";
+import http from "../http-commun"
 
-
-const INDEX_API_URL = "http://localhost:8081/api";
-const FORMATIONS_API_URL = `${INDEX_API_URL}/formations`;
+const FORMATIONS_API_URL = `/formations`;
 
 class FormationsDataService {
-    retrieveAllFormations() {
-        return axios.get(`${FORMATIONS_API_URL}`);
+
+    getAllFormation() {
+        return http.get(`${FORMATIONS_API_URL}`);
     }
 
-    retrieveUneFormations(id) {
-        return axios.get(`${FORMATIONS_API_URL}/${id}`);
+    getFormation(id) {
+        return http.get(`${FORMATIONS_API_URL}/${id}`);
     }
 
-    deleteUneFormation(id) {
-        return axios.delete(`${FORMATIONS_API_URL}/${id}`);
+    createFormation(data) {
+        return http.post(`${FORMATIONS_API_URL}`, data)
+    }
+
+    updateFormation(id, data) {
+        return http.put(`${FORMATIONS_API_URL}/${id}`, data)
+    }
+
+    deleteFormation(id) {
+        return http.delete(`${FORMATIONS_API_URL}/${id}`);
+    }
+
+    deleteAllFormation() {
+        return http.delete(`${FORMATIONS_API_URL}`)
+    }
+
+    findTitreFormation (title) {
+        return http.get(`${FORMATIONS_API_URL}+/${title}`)
     }
 }
 

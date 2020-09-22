@@ -17,6 +17,8 @@ import Login from "@/pages/Login";
 import InscriptionInfos from "@/components/InscriptionInfos";
 import GestionProfil from "@/components/GestionProfil";
 
+
+
 //imports pages
 import Home from "@/pages/Home";
 import Formation from "@/pages/Formation";
@@ -27,6 +29,8 @@ import Postuler from "@/pages/Postuler";
 import Inscription from "@/pages/Inscription";
 import Profil from "@/pages/Profil";
 import FormationsApp from "./components/FormationsApp";
+import AddFormation from "@/components/AddFormation";
+
 
 
 Vue.use(BootstrapVue);
@@ -53,9 +57,14 @@ const routes = [
 
             //Appel au back api
             //{path: "/api/formation/", component: Formation},
+
             {path: "/api/Formations/:id", component: Formation},
             {path: "/api/Formations/", component: FormationsApp},
             {path: "/api/Formations/:id", component: FormationsApp},
+            {path: "/api/FormationsAdd/", component: AddFormation},
+
+
+
 
             {
                 path: "Profil/:id", component: Profil,
