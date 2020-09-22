@@ -49,8 +49,8 @@ public class ActionRechercheEntity {
     @Column(name = "date_reponse")
     private String dateReponse;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(referencedColumnName ="id_candidat",name = "id_candidat", nullable=false )
     @JsonIgnore
     private CandidatEntity candidat;
-
 }

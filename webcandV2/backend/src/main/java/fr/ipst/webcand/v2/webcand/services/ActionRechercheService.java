@@ -43,12 +43,12 @@ public class ActionRechercheService implements IActionRechercheService {
         actionRechercheRepository.deleteById(id);
     }
 
-    public List<Map<String,Object>> AfficherListeEntreprisesContacte(long id) {
-        return actionRechercheRepository.AfficherListeEntreprisesContacte(id);
+    public List<Map<String,Object>> AfficherListeEntreprisesContacted(Long id) {
+        return actionRechercheRepository.AfficherListeEntreprisesContacted(id);
     }
 
-    public List<Map<String, Object>> AfficherListeEntrepriseContacteDetails(long id) {
-        return actionRechercheRepository.AfficherListeEntrepriseContacteDetails(id);
+    public List<Map<String, Object>> AfficherListeEntrepriseContactedDetails(Long id) {
+        return actionRechercheRepository.AfficherListeEntrepriseContactedDetails(id);
     }
 
 }

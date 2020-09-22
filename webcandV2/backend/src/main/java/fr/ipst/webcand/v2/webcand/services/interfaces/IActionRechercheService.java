@@ -13,6 +13,6 @@ public interface IActionRechercheService {
     ActionRechercheEntity save(ActionRechercheEntity actionRechercheEntity);
     ActionRechercheEntity update(ActionRechercheEntity actionRechercheEntity);
     void deleteById(Long id);
-    List<Map<String,Object>> AfficherListeEntreprisesContacte(long id);
-    List<Map<String, Object>> AfficherListeEntrepriseContacteDetails(long id);
+    List<Map<String,Object>> AfficherListeEntreprisesContacted(Long id);
+    List<Map<String, Object>> AfficherListeEntrepriseContactedDetails(Long id);
 }

@@ -7,6 +7,7 @@ import fr.ipst.webcand.v2.webcand.services.interfaces.ISessionFormationEtFormati
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -29,9 +30,20 @@ public class SessionFormationEtFormationUCController {
 
     @GetMapping("/{id}/sessionsformation")
     @Operation(summary = "Méthode permettant d'afficher les sessions de la formation.")
-    public ResponseEntity<List<Map<String,Object>>> AfficherLesSessionsDeLaFormation(@PathVariable("id")final Long id){
+    public ResponseEntity<List<Map<String,Object>>> AfficherLesSessionsDeLaFormation(@PathVariable("id")final Long id) {
 
         return ResponseEntity.ok(fservice.AfficherLesSessionsDeLaFormation(id));
+    }
+
+    @GetMapping("/{id}/sessionsformation/{idSession}")
+    @Operation(summary = "Méthode permettant de récupérer une session d'une formation.")
+    public ResponseEntity<SessionFormationDto> AfficherLaSessionDuneFormation(
+            @PathVariable("id")final Long idFormation,
+            @PathVariable("idSession") Long idSession) {
+
+        final SessionFormationEntity sessionEntity = this.fservice.AfficherLaSessionDuneFormation(idFormation,idSession);
+
+        return new ResponseEntity<>(imapper.entiteVersDto(sessionEntity), HttpStatus.OK);
     }
 
     @PostMapping("/{id}/sessionsformation")

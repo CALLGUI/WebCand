@@ -14,11 +14,9 @@ public interface IFormationRepository extends JpaRepository<FormationEntity, Lon
     @Query(value = "SELECT nom_Formation FROM formations " , nativeQuery = true)
     List<Map<String,Object>> AfficherLeNomDesFormations();
 
-    @Query(value = "SELECT * FROM sessions_formation where id_formation = :id " , nativeQuery = true)
-    List<Map<String,Object>> AfficherLesSessionsDeLaFormation(long id);
 
     @Query(value = "SELECT f.nom_formation, f.description_formation, sf.date_debut_session, sf.date_fin_session " +
             "FROM formations f, session_formation sf where f.id_formation = sf.id_formation" +
             " and f.id_formation = :id " , nativeQuery = true)
-    List<Map<String,Object>> AfficherInfoSessionEtFormation(long id);
+    List<Map<String,Object>> AfficherInfoSessionEtFormation(Long id);
 }

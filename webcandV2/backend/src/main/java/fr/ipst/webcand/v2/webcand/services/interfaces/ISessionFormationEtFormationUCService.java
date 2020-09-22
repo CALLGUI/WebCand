@@ -13,4 +13,5 @@ public interface ISessionFormationEtFormationUCService {
     SessionFormationEntity addSession(Long idFormation, SessionFormationEntity session);
 
     List<Map<String,Object>> AfficherLesSessionsDeLaFormation(Long id);
+    SessionFormationEntity AfficherLaSessionDuneFormation(Long idFormation, Long idSession);
 }

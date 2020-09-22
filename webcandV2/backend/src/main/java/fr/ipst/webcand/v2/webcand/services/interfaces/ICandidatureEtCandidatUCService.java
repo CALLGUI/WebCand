@@ -15,6 +15,7 @@ public interface ICandidatureEtCandidatUCService {
     void removeCandidature (Long idCandidat, Long idCandidature);
 
     List<Map<String,Object>> AfficherLesCandidaturesDuCandidat(Long id);
-    CandidatureEntity AfficherLaCandidatureDuCandidat(Long idCandidat, Long idCandidature);;
+    CandidatureEntity AfficherLaCandidatureDuCandidat(Long idCandidat, Long idCandidature);
+
 
 }

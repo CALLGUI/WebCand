@@ -66,14 +66,14 @@ public class ActionRechercheController {
 
     @GetMapping("/actionRechercheCandidat/{id}")
     @Operation(summary = "Méthode permettant de chercher les actions de recherche d'un candidat")
-    public ResponseEntity<List<Map<String, Object>>> AfficherListeEntreprisesContacte(@PathVariable("id") long id) {
-        return ResponseEntity.ok(arservice.AfficherListeEntreprisesContacte(id));
+    public ResponseEntity<List<Map<String, Object>>> AfficherListeEntreprisesContacte(@PathVariable("id")final Long id) {
+        return ResponseEntity.ok(arservice.AfficherListeEntreprisesContacted(id));
     }
 
     @GetMapping("/actionRechercheCandidatDetails/{id}")
     @Operation(summary = "Méthode permettant de voir le détail des entreprises contacté par le candidat")
-    public ResponseEntity<List<Map<String, Object>>> AfficherListeEntrepriseContacteDetails(@PathVariable("id") long id) {
-        return ResponseEntity.ok(arservice.AfficherListeEntrepriseContacteDetails(id));
+    public ResponseEntity<List<Map<String, Object>>> AfficherListeEntrepriseContacteDetails(@PathVariable("id")final Long id) {
+        return ResponseEntity.ok(arservice.AfficherListeEntrepriseContactedDetails(id));
     }
 
 /*          Forme d'un POST JSON http://localhost:8080/api/actionsrecherche

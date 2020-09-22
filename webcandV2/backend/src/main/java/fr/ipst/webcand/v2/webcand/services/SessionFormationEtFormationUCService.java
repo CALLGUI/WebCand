@@ -24,10 +24,33 @@ public class SessionFormationEtFormationUCService implements ISessionFormationEt
     private ISessionFormationRepository sessionRepository;
 
     public List<Map<String,Object>> AfficherLesSessionsDeLaFormation(Long id){
-        return formationRepository.AfficherLesSessionsDeLaFormation(id);
+        return sessionRepository.AfficherLesSessionsDeLaFormation(id);
     }
 
-    public SessionFormationEntity addSession(Long idFormation, SessionFormationEntity session) {
+    @Override
+    public SessionFormationEntity AfficherLaSessionDuneFormation(Long idFormation, Long idSession) {
+        FormationEntity formation = formationRepository.findById(idFormation).
+                orElseThrow(() -> new RessourceNotFoundException("candidat", "id", "idFormation"));
+
+        if (formation == null) {
+            return null;
+        }
+
+        SessionFormationEntity session = sessionRepository.findById(idSession).
+                orElseThrow(() -> new RessourceNotFoundException("sessionFormation", "id", "idSession"));
+
+        if (session == null) {
+            return null;
+        }
+
+        if (session.getFormation().getIdFormation() != idFormation) {
+            return null;
+        }
+
+        return session;
+    }
+
+        public SessionFormationEntity addSession(Long idFormation, SessionFormationEntity session) {
         FormationEntity formation = formationRepository.findById(idFormation).
                 orElseThrow(()->new RessourceNotFoundException("formation","id","idFormation"));
 

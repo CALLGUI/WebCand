@@ -15,12 +15,12 @@ public interface IActionRechercheRepository extends JpaRepository<ActionRecherch
             "SELECT nom_entreprise, date_contact, reponse_entreprise" +
             "FROM action_Recherche" +
             "WHERE id_candidat = :id", nativeQuery = true)
-    List<Map<String,Object>> AfficherListeEntreprisesContacte(long id);
+    List<Map<String,Object>> AfficherListeEntreprisesContacted(Long id);
 
     @Query(value = "SELECT nom_entreprise, nom_contact, mail_contact, telephone_contact, date_contact, " +
             "reponse_entreprise, type_postuler, nom_poste, date_reponse " +
             "FROM actions_recherche " +
             "WHERE ar_candidat_id_candidat = :id", nativeQuery = true)
-    List<Map<String,Object>> AfficherListeEntrepriseContacteDetails(long id);
+    List<Map<String,Object>> AfficherListeEntrepriseContactedDetails(Long id);
 
 }
