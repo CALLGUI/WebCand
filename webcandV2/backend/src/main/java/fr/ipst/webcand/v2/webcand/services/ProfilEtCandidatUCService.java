@@ -51,4 +51,29 @@ public class ProfilEtCandidatUCService implements IProfilEtCandidatUCService {
 
     }
 
+    public ProfilEntity addProfil(Long idCandidat, ProfilEntity profil) {
+        CandidatEntity candidat = candidatRepo.findById(idCandidat).
+                orElseThrow(()->new RessourceNotFoundException("candidat", "id", "idCandidat"));
+
+        if (candidat == null) {
+            return null;
+        }
+
+        candidat.getProfils().add(profil);
+
+        return profil;
+    }
+
+    public void removeProfil(Long idCandidat, Long idProfil) {
+        CandidatEntity candidat = candidatRepo.findById(idCandidat).
+                orElseThrow(()->new RessourceNotFoundException("candidat", "id", "idCandidat"));
+
+        if (candidat == null) {
+            return ;
+        }
+        ProfilEntity profil = profilRepo.findById(idProfil).
+                orElseThrow(()->new RessourceNotFoundException("profil", "id", "idProfil"));
+        candidat.getProfils().remove(profil);
+    }
+
 }

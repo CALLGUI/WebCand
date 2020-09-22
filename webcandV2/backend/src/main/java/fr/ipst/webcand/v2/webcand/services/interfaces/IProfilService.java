@@ -12,4 +12,5 @@ public interface IProfilService {
     ProfilEntity save(ProfilEntity profilEntity);
     ProfilEntity update(ProfilEntity profilEntity);
     void deleteById(Long id);
+
 }

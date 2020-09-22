@@ -9,7 +9,9 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -38,8 +40,29 @@ public class ProfilEtCandidatUCController {
         ProfilEntity profil = pucservice.getOneProfilByIdCandidat(idC, idP);
         ProfilDto profilDto = pucmapper.entiteVersDto(profil);
         return ResponseEntity.ok(profilDto);
+    }
 
+    @PostMapping("{id}/profils")
+    @Operation(summary = "Méthode permettant de créer un profil")
+    public ResponseEntity<Void> createProfil(@PathVariable("id")final Long idCandidat,
+                                             @RequestBody final ProfilDto profilDto) {
+        ProfilEntity profil = pucservice.addProfil(idCandidat, pucmapper.dtoVersEntite(profilDto));
 
+        if (profil == null) {
+            return ResponseEntity.noContent().build();
+        }
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(
+                "/{idProfil}").buildAndExpand(profil.getIdProfil()).toUri();
+
+        return ResponseEntity.created(location).build();
+    }
+
+    @DeleteMapping("{id}/profils/{idProfil}")
+    @Operation(summary = "Méthode permettant de supprimer un profil")
+    public void suppressionProfil(@PathVariable("id") Long id,
+                                  @PathVariable("idProfil") Long idProfil) {
+        pucservice.removeProfil(id, idProfil);
     }
 
 }

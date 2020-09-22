@@ -10,5 +10,7 @@ public interface IProfilEtCandidatUCService {
 
     List<ProfilEntity> getAllProfilByIdCandidat(Long idCandidat);
     ProfilEntity getOneProfilByIdCandidat(Long idCandidat, Long idProfil);
+    ProfilEntity addProfil(Long idCandidat, ProfilEntity profil);
+    void removeProfil(Long idCandidat, Long idProfil);
 
 }
