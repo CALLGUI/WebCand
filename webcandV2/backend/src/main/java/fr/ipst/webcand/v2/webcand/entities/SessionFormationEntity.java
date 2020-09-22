@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "sessions_formation")
@@ -30,16 +28,11 @@ public class SessionFormationEntity {
 
 
                             /* Table d'associations et relations */
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE},fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(referencedColumnName ="id_formation",name = "id_formation", nullable=false )
     @JsonIgnore
     private FormationEntity formation;
 
-    @OneToMany(cascade =  CascadeType.ALL, orphanRemoval=true)
-    @JoinTable( name = "candidature_session_associations",
-            joinColumns = @JoinColumn( name = "id_session_formation" ),
-            inverseJoinColumns = @JoinColumn( name = "id_candidature"))
+    @OneToMany(mappedBy = "sesssionFormation", cascade =  CascadeType.ALL, orphanRemoval=true)
     private List<CandidatureEntity> candidatures;
-
-
 }

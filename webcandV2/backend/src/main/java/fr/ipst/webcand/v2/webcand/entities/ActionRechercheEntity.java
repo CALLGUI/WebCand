@@ -2,7 +2,7 @@ package fr.ipst.webcand.v2.webcand.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -50,7 +50,7 @@ public class ActionRechercheEntity {
     private String dateReponse;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("cActionRecherche")
+    @JsonIgnore
     private CandidatEntity candidat;
 
 }

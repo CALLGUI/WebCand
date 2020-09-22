@@ -40,9 +40,9 @@ public class CandidatureEntity {
     @JsonIgnore
     private CandidatEntity candidat;
 
-    @ManyToOne(cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(referencedColumnName ="id_session_formation",name="id_session", nullable=false)
-    @JsonIgnoreProperties("candidatures")
+    @JsonIgnore
     private SessionFormationEntity sesssionFormation;
 
 }
