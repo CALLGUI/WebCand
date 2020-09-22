@@ -42,6 +42,11 @@ public class FormationService implements IFormationService {
         formationRepository.deleteById(id);
     }
 
+    @Override
+    public List<Map<String,Object>> CherCherUnNomDansFormations(String nomFormation){
+        return formationRepository.CherCherUnNomDansFormations(nomFormation);
+    }
+
     public List<Map<String,Object>> AfficherLeNomDesFormations(){
         return formationRepository.AfficherLeNomDesFormations();
     }

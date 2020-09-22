@@ -68,6 +68,15 @@ public class FormationController {
     }
 
     /* Affichage information specifique avec des requetes SQL natives >repo< */
+
+    @GetMapping("/noms/{nom}")
+    @Operation(summary = "Méthode permettant d'afficher un nom chercher dans la liste des formation.")
+    public ResponseEntity<List<Map<String,Object>>> CherCherUnNomDansFormations(
+            @PathVariable("nom") String nomFormation){
+
+        return ResponseEntity.ok(fservice.CherCherUnNomDansFormations(nomFormation));
+    }
+
     @GetMapping("/noms")
     @Operation(summary = "Méthode permettant d'afficher les noms de formation.")
     public ResponseEntity<List<Map<String,Object>>> AfficherLeNomDesFormations(){

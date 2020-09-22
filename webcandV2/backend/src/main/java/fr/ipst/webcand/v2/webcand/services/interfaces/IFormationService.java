@@ -14,6 +14,7 @@ public interface IFormationService {
     FormationEntity update(FormationEntity formationEntity);
     void deleteById(Long id);
 
+    List<Map<String,Object>> CherCherUnNomDansFormations(String nomFormation);
     List<Map<String,Object>> AfficherLeNomDesFormations();
     List<Map<String,Object>> AfficherInfoSessionEtFormation(Long id);
 }
