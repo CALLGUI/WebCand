@@ -24,8 +24,9 @@ public class CandidatureEtCandidatUCService implements ICandidatureEtCandidatUCS
     @Autowired
     private ICandidatureRepository candidatureRepository;
 
+    @Override
     public List<Map<String,Object>> AfficherLesCandidaturesDuCandidat(Long idCandidature){
-        return candidatRepository.AfficherLesCandidaturesDuCandidat(idCandidature);
+        return candidatureRepository.AfficherLesCandidaturesDuCandidat(idCandidature);
     }
 
     @Override
