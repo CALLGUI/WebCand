@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "candidats")
@@ -62,10 +60,7 @@ public class CandidatEntity {
         ccand.setCCandidat(null);
     }*/
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable( name = "actionRecherche_candidat_associations",
-            joinColumns = @JoinColumn(name = "id_candidat"),
-            inverseJoinColumns = @JoinColumn(name = "id_action_recherche"))
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "candidat", orphanRemoval = true)
     @JsonIgnore
     private List<ActionRechercheEntity> actionsRecherche;
 
