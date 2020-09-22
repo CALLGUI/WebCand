@@ -7,11 +7,14 @@ import fr.ipst.webcand.v2.webcand.services.interfaces.ICandidatureEtCandidatUCSe
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/candidats")
@@ -25,10 +28,29 @@ public class CandidatureEtCandidatUCController {
     @Autowired
     private ICandidatureMapper cumapper;
 
+    @GetMapping("/{id}/candidatures")
+    @Operation(summary = "Méthode permettant d'afficher les candidatures du candidat.")
+    public ResponseEntity<List<Map<String,Object>>> AfficherLesSessionsDeLaFormation(@PathVariable("id")final Long id){
+
+        return ResponseEntity.ok(cureservice.AfficherLesCandidaturesDuCandidat(id));
+    }
+
+    @GetMapping("/{id}/candidatures/{idCandidature}")
+    @Operation(summary = "Méthode permettant de récupérer une candidature d'un candidat.")
+    public ResponseEntity<CandidatureDto> AfficherLaCandidatureDuCandidat(
+            @PathVariable("id")final Long idCandidat,
+            @PathVariable("idCandidature") final Long idCandidature) {
+
+        final CandidatureEntity cuEntity = this.cureservice.AfficherLaCandidatureDuCandidat(idCandidat,idCandidature);
+
+        return new ResponseEntity<>(cumapper.entiteVersDto(cuEntity), HttpStatus.OK);
+    }
+
     @PostMapping("/{id}/candidatures")
     @Operation(summary = "Méthode permettant de crée une candidature")
     public ResponseEntity<Void> createCandidature(
-            @PathVariable("id") Long idCandidat, @RequestBody CandidatureDto candidatureDto) {
+            @PathVariable("id")final Long idCandidat,
+            @RequestBody final CandidatureDto candidatureDto) {
 
         CandidatureEntity candidature = cureservice.addCandidature(idCandidat,cumapper.dtoVersEntite(candidatureDto));
 
@@ -45,7 +67,8 @@ public class CandidatureEtCandidatUCController {
     @DeleteMapping("/{id}/candidatures/{idCandidature}")
     @Operation(summary = "Méthode permettant de supprimer une candidature")
     public void suppressionCandidature(
-            @PathVariable("id") Long id, @PathVariable("idCandidature") Long idCandidature){
+            @PathVariable("id") Long id,
+            @PathVariable("idCandidature") Long idCandidature){
 
         cureservice.removeCandidature(id,idCandidature);
     }

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Map;
 
 @Transactional
 @Service
@@ -40,10 +39,6 @@ public class CandidatService implements ICandidatService {
     @Override
     public void deleteById(Long id) {
         candidatRepository.deleteById(id);
-    }
-
-    public List<Map<String,Object>> AfficherLesCandidaturesDuCandidat(Long id){
-        return candidatRepository.AfficherLesCandidaturesDuCandidat(id);
     }
 
 }

@@ -7,7 +7,6 @@ import fr.ipst.webcand.v2.webcand.services.interfaces.ICandidatService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/candidats")
@@ -72,12 +70,6 @@ public class CandidatController {
         this.cservice.deleteById(candidatId);
     }
 
-    @GetMapping("/{id}/candidatures")
-    @Operation(summary = "Méthode permettant d'afficher les candidatures du candidat.")
-    public ResponseEntity<List<Map<String,Object>>> AfficherLesSessionsDeLaFormation(@PathVariable("id") long id){
-
-        return ResponseEntity.ok(cservice.AfficherLesCandidaturesDuCandidat(id));
-    }
 
     /*
     Forme d'un POST JSON http://localhost:8080/api/candidats

@@ -35,8 +35,8 @@ public class SessionFormationController {
     @PostMapping
     @Operation(summary = "Méthode permettant d'enregistrer une session de formation")
     public ResponseEntity<SessionFormationDto> createSessionFormation(@RequestBody final SessionFormationDto sessionFormationDto) {
-        final SessionFormationEntity saved = sfservice.save(sfmapper.dtoVersEntite(sessionFormationDto));
 
+        final SessionFormationEntity saved = sfservice.save(sfmapper.dtoVersEntite(sessionFormationDto));
         return new ResponseEntity<>(sfmapper.entiteVersDto(saved), HttpStatus.CREATED);
     }
 
@@ -65,14 +65,16 @@ public class SessionFormationController {
 
     @GetMapping("/datedebut/{datedebut}")
     @Operation(summary = "Méthode permettant de trouver les sessions de formation grace a une date debut")
-    public ResponseEntity<List<SessionFormationDto>> findByDateDebutSession(@PathVariable("datedebut")final String dateDebut){
+    public ResponseEntity<List<SessionFormationDto>> findByDateDebutSession(
+            @PathVariable("datedebut")final String dateDebut){
 
         return ResponseEntity.ok(sfmapper.listeEntiteVersListeDto(sfservice.findByDateDebutSession(dateDebut)));
     }
 
     @GetMapping("/datefin/{datefin}")
     @Operation(summary = "Méthode permettant de trouver les sessions de formation grace a une date fin")
-    public ResponseEntity<List<SessionFormationDto>> findByDateFinSession(@PathVariable("datefin")final String dateFin){
+    public ResponseEntity<List<SessionFormationDto>> findByDateFinSession(
+            @PathVariable("datefin")final String dateFin){
 
         return ResponseEntity.ok(sfmapper.listeEntiteVersListeDto(sfservice.findByDateFinSession(dateFin)));
     }

@@ -7,7 +7,6 @@ import fr.ipst.webcand.v2.webcand.services.interfaces.ICandidatureService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,22 +35,23 @@ public class CandidatureController {
     @PostMapping
     @Operation(summary = "Méthode permettant d'enregistrer une candidature")
     public ResponseEntity<CandidatureDto> createCandidature(@RequestBody final CandidatureDto candidatureDto) {
-        final CandidatureEntity saved = cuservice.save(cumapper.dtoVersEntite(candidatureDto));
 
+        final CandidatureEntity saved = cuservice.save(cumapper.dtoVersEntite(candidatureDto));
         return new ResponseEntity<>(cumapper.entiteVersDto(saved), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     @Operation(summary = "Méthode permettant de récupérer une candidature")
     public ResponseEntity<CandidatureDto> getCandidatureById(@PathVariable("id") final Long candidatureId) {
-        final CandidatureEntity cuEntity = this.cuservice.findById(candidatureId);
 
+        final CandidatureEntity cuEntity = this.cuservice.findById(candidatureId);
         return new ResponseEntity<>(cumapper.entiteVersDto(cuEntity), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Méthode permettant de mettre à jour une candidature")
     public ResponseEntity<CandidatureDto> updateCandidature(@RequestBody final CandidatureDto candidatureDto) {
+
         final CandidatureEntity saved = this.cuservice.update(cumapper.dtoVersEntite(candidatureDto));
         return new ResponseEntity<>(cumapper.entiteVersDto(saved), HttpStatus.OK);
     }
@@ -62,16 +62,4 @@ public class CandidatureController {
 
         this.cuservice.deleteById(candidatureId);
     }
-
-
-    /*
-    @PostMapping
-    @Operation(summary = "Méthode permettant d'enregistrer une candidature")
-    public ResponseEntity<CandidatureDto> createCandidature(@RequestBody String jourJ
-                                                                            ,Long idSessionFormation,Long idCandidat){
-        final CandidatureEntity saved = cuservice
-                .createCandidatureWithAssociation(jourJ, idSessionFormation, idCandidat);
-        return new ResponseEntity<>(cumapper.entiteVersDto(saved), HttpStatus.CREATED);
-    }*/
-
 }
