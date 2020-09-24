@@ -3,7 +3,7 @@ package fr.ipst.webcand.v2.webcand.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "documents")
+@Table(name = "fichiers")
 public class FichierEntity {
 
     @Id

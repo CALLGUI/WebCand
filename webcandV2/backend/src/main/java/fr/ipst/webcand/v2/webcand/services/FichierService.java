@@ -8,9 +8,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.transaction.Transactional;
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
+@Transactional
 @Service
 public class FichierService implements IFichierService {
 
@@ -30,5 +34,13 @@ public class FichierService implements IFichierService {
 
     public Stream<FichierEntity> getAllFiles() {
         return docRepository.findAll().stream();
+    }
+
+    public void deleteById(Long idDocument){
+        this.docRepository.deleteById(idDocument);
+    }
+
+    public List<Map<String,Object>> AfficherLesFichiersDuUser(Long idUser){
+        return docRepository.AfficherLesFichiersDuUser(idUser);
     }
 }
