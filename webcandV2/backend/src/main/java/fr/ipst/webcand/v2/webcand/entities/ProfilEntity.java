@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "profils")
@@ -25,5 +26,11 @@ public class ProfilEntity {
     @JoinColumn(name = "id_candidat", nullable = false)
     @JsonIgnore
     private CandidatEntity candidat;
+
+    @OneToMany(mappedBy = "profil", cascade= CascadeType.ALL, orphanRemoval = true)
+    private List<DiplomeEntity> diplomes;
+
+    @OneToMany(mappedBy = "profil", cascade= CascadeType.ALL, orphanRemoval = true)
+    private List<ExperienceProEntity> expPro;
 
 }
