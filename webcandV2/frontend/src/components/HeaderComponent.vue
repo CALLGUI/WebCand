@@ -48,7 +48,7 @@
 <script>
 
 
-import ListeFormations from "@/components/ListeFormations";
+import ListeFormations from "@/components/formation-components/ListeFormations";
 
 export default {
   name: "HeaderComponent",

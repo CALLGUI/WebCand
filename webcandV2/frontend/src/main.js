@@ -12,10 +12,12 @@ import "./custom.scss";
 //imports components
 import MentionLegales from "@/components/MentionLegales";
 import CardComponent from "@/components/CardComponent";
-import ListeFormations from "@/components/ListeFormations";
 import Login from "@/pages/Login";
 import InscriptionInfos from "@/components/InscriptionInfos";
 import GestionProfil from "@/components/GestionProfil";
+import ListeFormations from "@/components/formation-components/ListeFormations";
+//import ModifierFormation from "@/components/formation-components/ModifierFormation";
+import updateFormation from "@/components/formation-components/updateFormation";
 
 
 
@@ -28,8 +30,8 @@ import DemarcheCandidat from "@/pages/DemarcheCandidat";
 import Postuler from "@/pages/Postuler";
 import Inscription from "@/pages/Inscription";
 import Profil from "@/pages/Profil";
-import FormationsApp from "./components/FormationsApp";
-import AddFormation from "@/components/AddFormation";
+import FormationsApp from "./components/formation-components/FormationsApp";
+import AddFormation from "@/components/formation-components/AddFormation";
 
 
 
@@ -62,7 +64,8 @@ const routes = [
             {path: "/api/Formations/", component: FormationsApp},
             {path: "/api/Formations/:id", component: FormationsApp},
             {path: "/api/FormationsAdd/", component: AddFormation},
-
+            //{path: "/api/ModifierFormation/:id", component: ModifierFormation},
+            {path: "/api/ModifierFormation/:id", component: updateFormation},
 
 
 

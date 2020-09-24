@@ -12,7 +12,7 @@
   </div>
 </template>
 <script>
-import FormationsDataService from "../services/FormationsDataService";
+import FormationsDataService from "../../services/FormationsDataService";
 
 export default {
   name: "ListeDDFormations",

@@ -41,6 +41,7 @@ export default {
   name: "AddFormation",
   data() {
     return {
+      form : 0,
       formation: {
         idFormation: null,
         nomFormation: '',
@@ -51,6 +52,8 @@ export default {
     };
   },
   methods: {
+
+
     saveFormation() {
       var data = {
         nomFormation: this.formation.nomFormation,
