@@ -17,7 +17,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/profils")
-@Tag(name = "Gestion des sessions de formation")
+@Tag(name = "Gestion des diplomes d'un profil")
 public class DiplomeEtProfilController {
 
     @Autowired
