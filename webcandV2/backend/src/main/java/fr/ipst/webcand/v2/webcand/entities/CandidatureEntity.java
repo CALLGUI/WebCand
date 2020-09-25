@@ -1,6 +1,7 @@
 package fr.ipst.webcand.v2.webcand.entities;
 
 import com.fasterxml.jackson.annotation.*;
+import fr.ipst.webcand.v2.webcand.entities.enumerations.ValidationAdministrativeStatut;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -28,6 +29,9 @@ public class CandidatureEntity {
 
     @Column(name = "lien_entretien")
     private String lienEntretien;
+
+    @Column(name ="validite")
+    private ValidationAdministrativeStatut validation = ValidationAdministrativeStatut.En_cours;
 
     @Column(name = "etat_candidature")
     @Enumerated(EnumType.STRING)

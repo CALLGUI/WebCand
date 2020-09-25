@@ -1,6 +1,7 @@
 package fr.ipst.webcand.v2.webcand.services;
 
 import fr.ipst.webcand.v2.webcand.entities.CandidatureEntity;
+import fr.ipst.webcand.v2.webcand.entities.SessionFormationEntity;
 import fr.ipst.webcand.v2.webcand.repository.ICandidatureRepository;
 import fr.ipst.webcand.v2.webcand.services.interfaces.ICandidatureService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,4 +42,11 @@ public class CandidatureService implements ICandidatureService {
         candidatureRepository.deleteById(id);
     }
 
+    public long count(){
+        return candidatureRepository.count();
+    };
+
+    public long compterNombreDeCandidaturesParIdSession(Long idSessionFormation){
+        return candidatureRepository.compterNombreDeCandidaturesParIdSession(idSessionFormation);
+    }
 }
