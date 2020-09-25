@@ -31,8 +31,8 @@ public class ActionRechercheEntity {
     @Column(name = "mail_contact")
     private String mailContact;
 
-    @Column(name = "telephone_Contact")
-    private String telephonneContact;
+    @Column(name = "telephone_contact")
+    private String telephoneContact;
 
     @Column(name = "date_contact")
     private String dateContact;
@@ -49,7 +49,7 @@ public class ActionRechercheEntity {
     @Column(name = "date_reponse")
     private String dateReponse;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinColumn(referencedColumnName ="id_candidat",name = "id_candidat", nullable=false )
     @JsonIgnore
     private CandidatEntity candidat;
