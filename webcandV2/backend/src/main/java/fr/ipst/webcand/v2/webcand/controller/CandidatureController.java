@@ -62,4 +62,17 @@ public class CandidatureController {
 
         this.cuservice.deleteById(candidatureId);
     }
+
+    @GetMapping("/nombrecandidatures")
+    @Operation(summary = "Méthode permettant de retourner le nombre de candidatures total")
+    public long count(){
+        return cuservice.count();
+    };
+
+    @GetMapping("/nombrecandidatures/{idSessions}")
+    @Operation(summary = "Méthode permettant de retourner le nombre de candidatures total d'une session")
+    public long compterNombreDeCandidaturesParIdSession(@PathVariable("idSessions") final Long idSession){
+
+        return cuservice.compterNombreDeCandidaturesParIdSession(idSession);
+    }
 }

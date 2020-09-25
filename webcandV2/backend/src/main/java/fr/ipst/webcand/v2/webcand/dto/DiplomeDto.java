@@ -1,6 +1,7 @@
 package fr.ipst.webcand.v2.webcand.dto;
 
 import fr.ipst.webcand.v2.webcand.entities.ProfilEntity;
+import fr.ipst.webcand.v2.webcand.entities.enumerations.NiveauDiplome;
 import lombok.Data;
 
 @Data
@@ -18,4 +19,5 @@ public class DiplomeDto {
 
     private ProfilEntity profil;
 
+    private NiveauDiplome niveauDiplome;
 }

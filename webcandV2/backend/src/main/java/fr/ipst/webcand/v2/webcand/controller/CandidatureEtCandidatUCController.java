@@ -30,7 +30,7 @@ public class CandidatureEtCandidatUCController {
 
     @GetMapping("/{id}/candidatures")
     @Operation(summary = "Méthode permettant d'afficher les candidatures du candidat.")
-    public ResponseEntity<List<Map<String,Object>>> AfficherLesSessionsDeLaFormation(@PathVariable("id")final Long id){
+    public ResponseEntity<List<Map<String,Object>>> AfficherLesCandidaturesDuCandidat(@PathVariable("id")final Long id){
 
         return ResponseEntity.ok(cureservice.AfficherLesCandidaturesDuCandidat(id));
     }

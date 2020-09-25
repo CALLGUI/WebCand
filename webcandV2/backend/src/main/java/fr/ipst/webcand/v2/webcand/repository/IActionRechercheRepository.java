@@ -23,4 +23,7 @@ public interface IActionRechercheRepository extends JpaRepository<ActionRecherch
             "WHERE ar_candidat_id_candidat = :id", nativeQuery = true)
     List<Map<String,Object>> AfficherListeEntrepriseContactedDetails(Long id);
 
+    @Query(value = "SELECT * FROM actions_recherche where id_candidat = :id " , nativeQuery = true)
+    List<Map<String,Object>> afficherLesActionsRecherchesCandidat(Long id);
+
 }

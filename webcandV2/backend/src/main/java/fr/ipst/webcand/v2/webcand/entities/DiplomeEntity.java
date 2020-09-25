@@ -3,6 +3,7 @@ package fr.ipst.webcand.v2.webcand.entities;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import fr.ipst.webcand.v2.webcand.entities.enumerations.NiveauDiplome;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -32,6 +33,9 @@ public class DiplomeEntity {
 
     @Column(name = "date_fin")
     private String dateFin;
+
+    @Column(name = "niveau_diplome")
+    private NiveauDiplome niveauDiplome;
 
     @ManyToOne(cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinColumn(referencedColumnName ="id_profil" ,name = "id_profil", nullable=false)
