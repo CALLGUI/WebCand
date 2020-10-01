@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "experiences_pro")
 @Data
-@EqualsAndHashCode(exclude = {""})
+@EqualsAndHashCode(exclude = {"profil"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
         , property = "idExpPro", scope = ExperienceProEntity.class)
 public class ExperienceProEntity {

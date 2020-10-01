@@ -47,7 +47,7 @@ public class ActionRechercheEtCandidatController {
 
     @PostMapping("/{id}/actionsrecherche")
     @Operation(summary = "Méthode permettant de créer une action de recherche d'un candidat")
-    public ResponseEntity<Void> createActionRecherche(@PathVariable("id")final Long idCandidat,
+    public ResponseEntity<ActionRechercheDto> createActionRecherche(@PathVariable("id")final Long idCandidat,
                                                       @RequestBody final ActionRechercheDto actionRechercheDto) {
         ActionRechercheEntity actionRecherche = arcservice.addActionRecherche(idCandidat,
                 arcmapper.dtoVersEntite(actionRechercheDto));
@@ -57,7 +57,8 @@ public class ActionRechercheEtCandidatController {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(
                 "/{idActionRecherche}").buildAndExpand(actionRecherche.getIdActionRecherche()).toUri();
 
-        return ResponseEntity.created(location).build();
+        ResponseEntity.created(location).build();
+        return new ResponseEntity<>(arcmapper.entiteVersDto(actionRecherche), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}/actionsrecherche/{idActionRecherche}")

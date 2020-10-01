@@ -48,7 +48,7 @@ public class CandidatureEtCandidatUCController {
 
     @PostMapping("/{id}/candidatures")
     @Operation(summary = "Méthode permettant de crée une candidature")
-    public ResponseEntity<Void> createCandidature(
+    public ResponseEntity<CandidatureDto> createCandidature(
             @PathVariable("id")final Long idCandidat,
             @RequestBody final CandidatureDto candidatureDto) {
 
@@ -61,7 +61,8 @@ public class CandidatureEtCandidatUCController {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(
                 "/{idCandidature}").buildAndExpand(candidature.getIdCandidature()).toUri();
 
-        return ResponseEntity.created(location).build();
+        ResponseEntity.created(location).build();
+        return new ResponseEntity<>(cumapper.entiteVersDto(candidature), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}/candidatures/{idCandidature}")

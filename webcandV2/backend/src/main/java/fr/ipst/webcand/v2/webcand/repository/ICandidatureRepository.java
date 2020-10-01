@@ -1,7 +1,6 @@
 package fr.ipst.webcand.v2.webcand.repository;
 
 import fr.ipst.webcand.v2.webcand.entities.CandidatureEntity;
-import fr.ipst.webcand.v2.webcand.entities.SessionFormationEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -20,5 +19,4 @@ public interface ICandidatureRepository extends JpaRepository<CandidatureEntity,
 
     //long countAllBySesssionFormation(SessionFormationEntity sessionFormation);
     long count();
-
 }

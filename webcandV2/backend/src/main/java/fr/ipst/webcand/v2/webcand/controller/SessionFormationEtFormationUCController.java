@@ -48,7 +48,7 @@ public class SessionFormationEtFormationUCController {
 
     @PostMapping("/{id}/sessionsformation")
     @Operation(summary = "Méthode permettant de crée une session de la formation.")
-    public ResponseEntity<Void> createSessionFormation(
+    public ResponseEntity<SessionFormationDto> createSessionFormation(
             @PathVariable("id")final Long id,
             @RequestBody final SessionFormationDto sessionDto) {
 
@@ -61,7 +61,8 @@ public class SessionFormationEtFormationUCController {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(
                 "/{idSessionFormation}").buildAndExpand(session.getIdSessionFormation()).toUri();
 
-        return ResponseEntity.created(location).build();
+        ResponseEntity.created(location).build();
+        return new ResponseEntity<>(imapper.entiteVersDto(session), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}/sessionsformation/{idSession}")

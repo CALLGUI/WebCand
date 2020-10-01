@@ -56,15 +56,16 @@ public class CandidatureEtCandidatUCService implements ICandidatureEtCandidatUCS
             return null;
         }
 
-
         List<CandidatureEntity> candidatures = candidat.getCandidatures();
         //limitations du nombre des candidatures par candidat a 1 candidature
         if(candidatures.size() != 0){
             return null ;
         }
-        candidat.getCandidatures().add(candidature);
-        return candidature;
 
+        candidat.getCandidatures().add(candidature);
+        candidature.setCandidat(candidat);
+
+        return candidature;
     }
 
     public void removeCandidature (Long idCandidat, Long idCandidature){

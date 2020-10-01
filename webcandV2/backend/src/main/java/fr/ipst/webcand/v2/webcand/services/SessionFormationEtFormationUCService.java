@@ -50,7 +50,7 @@ public class SessionFormationEtFormationUCService implements ISessionFormationEt
         return session;
     }
 
-        public SessionFormationEntity addSession(Long idFormation, SessionFormationEntity session) {
+    public SessionFormationEntity addSession(Long idFormation, SessionFormationEntity session) {
         FormationEntity formation = formationRepository.findById(idFormation).
                 orElseThrow(()->new RessourceNotFoundException("formation","id","idFormation"));
 
@@ -59,6 +59,7 @@ public class SessionFormationEtFormationUCService implements ISessionFormationEt
         }
 
         formation.getSessions().add(session);
+        session.setFormation(formation);
 
         return session;
     }

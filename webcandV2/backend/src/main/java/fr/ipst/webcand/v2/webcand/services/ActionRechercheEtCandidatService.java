@@ -52,7 +52,9 @@ public class ActionRechercheEtCandidatService implements IActionRechercheEtCandi
         if (candidat == null) {
             return null;
         }
+
         candidat.getActionsRecherche().add(actionRecherche);
+        actionRecherche.setCandidat(candidat);
 
         return actionRecherche;
     }

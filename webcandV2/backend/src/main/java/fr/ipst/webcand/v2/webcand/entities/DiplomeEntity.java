@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "diplomes")
 @Data
-@EqualsAndHashCode(exclude = {""})
+@EqualsAndHashCode(exclude = {"profil"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class
         , property = "idDiplome", scope = DiplomeEntity.class)
 public class DiplomeEntity {
